@@ -41,8 +41,7 @@ export const navItems: NavItem[] = [
 ];
 
 export const heroContent = {
-  eyebrow:
-    "Business continuity • Information security • Business analysis",
+  eyebrow: "Business continuity / Information security / Business analysis",
   headline: "Business continuity with technical depth.",
   intro:
     "Business continuity and information security professional with prior business analysis experience and a machine learning background from Georgia Tech. Experience spans banking, healthcare, requirements analysis, testing, SQL-based data work, and applied ML projects.",
@@ -53,7 +52,7 @@ export const heroContent = {
       text: "Continuity governance, stakeholder coordination, risk review, and resilience planning within banking.",
     },
     {
-      label: "Technical range",
+      label: "Technical foundation",
       text: "Machine learning, NLP, SQL-based analysis, UAT planning, and structured delivery across banking and healthcare.",
     },
   ],
@@ -187,30 +186,40 @@ export const toolGroups = [
     label: "Languages & Data",
     items: [
       "Python",
+      "Pandas",
+      "NumPy",
       "R",
       "Java",
       "C++",
       "JavaScript",
-      "Pandas",
-      "NumPy",
       "MySQL",
       "Oracle",
       "SQL Server",
     ],
   },
   {
-    label: "ML Stack",
-    items: ["PyTorch", "Keras", "TensorFlow"],
+    label: "ML & Engineering",
+    items: ["PyTorch", "Keras", "TensorFlow", "GitHub", "Docker"],
   },
   {
     label: "Workflow & Delivery",
-    items: ["GitHub", "Docker", "JIRA", "Agile Scrum", "RUP", "Waterfall"],
+    items: [
+      "JIRA",
+      "Agile Scrum",
+      "RUP",
+      "Waterfall",
+      "Eclipse",
+      "NetBeans",
+      "IntelliJ",
+      "MS Office",
+    ],
   },
 ];
 
 export const contact = {
   email: "dhruv.mehta2205@gmail.com",
   linkedin: "https://linkedin.com/in/dhruv-mehta2205",
+  phone: "+971 50 7031775",
   note:
     "Open to conversations around continuity strategy, risk-aware delivery, and analytical roles that benefit from structured technical depth.",
 };

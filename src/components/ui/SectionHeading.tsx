@@ -9,22 +9,15 @@ export function SectionHeading({
   intro,
   label,
   title,
-  tone = "dark",
+  tone = "light",
 }: SectionHeadingProps) {
-  const muted =
-    tone === "light"
-      ? "text-slate-600/90"
-      : "text-[color:rgba(222,225,247,0.7)]";
-  const labelTone =
-    tone === "light"
-      ? "text-slate-500/80"
-      : "text-[color:rgba(222,225,247,0.52)]";
-  const titleTone =
-    tone === "light" ? "text-slate-950" : "text-ivory";
+  const muted = tone === "light" ? "text-stone-600" : "text-stone-600";
+  const labelTone = tone === "light" ? "text-stone-500" : "text-stone-500";
+  const titleTone = tone === "light" ? "text-stone-900" : "text-stone-900";
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-      <div className="space-y-4">
+    <div className="grid gap-8 lg:grid-cols-[0.84fr_1.16fr] lg:items-start">
+      <div className="space-y-5">
         <p className={`section-kicker ${labelTone}`}>{label}</p>
         <h2 className={`section-title max-w-xl ${titleTone}`}>{title}</h2>
       </div>

@@ -7,22 +7,19 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ navItems, resumeUrl }: SiteHeaderProps) {
   return (
-    <header className="absolute inset-x-0 top-0 z-30">
-      <div className="section-shell flex items-start justify-between gap-6 px-6 py-6 md:px-8 lg:px-10">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-[color:rgba(94,79,66,0.08)] bg-[rgba(255,253,249,0.82)] backdrop-blur-xl">
+      <div className="section-shell flex items-center justify-between gap-6 px-6 py-5 md:px-8 lg:px-10">
         <a
-          className="font-sans text-[0.7rem] font-semibold uppercase tracking-[0.34em] text-ivory transition-colors duration-300 hover:text-accent"
+          className="font-serif text-[1.05rem] font-semibold tracking-[0.02em] text-stone-900 transition-colors duration-300 hover:text-[color:var(--accent-warm)]"
           href="#home"
         >
           Dhruv Mehta
         </a>
         <div className="flex items-center gap-6">
-          <nav
-            aria-label="Primary"
-            className="hidden items-center gap-6 lg:flex"
-          >
+          <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
             {navItems.map((item) => (
               <a
-                className="text-[0.68rem] font-medium uppercase tracking-[0.28em] text-[color:rgba(222,225,247,0.58)] transition-colors duration-300 hover:text-ivory"
+                className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-stone-500 transition-colors duration-300 hover:text-stone-900"
                 href={item.href}
                 key={item.href}
               >
@@ -31,7 +28,7 @@ export function SiteHeader({ navItems, resumeUrl }: SiteHeaderProps) {
             ))}
           </nav>
           <a
-            className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(0,218,243,0.92),rgba(112,216,200,0.88))] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-accent-ink transition-transform duration-300 hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center rounded-full bg-stone-900 px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-ivory transition-transform duration-300 hover:-translate-y-0.5 hover:bg-stone-800 sm:px-4 sm:text-[0.68rem] sm:tracking-[0.24em]"
             download
             href={resumeUrl}
           >

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dhruv Mehta | Business Continuity &amp; Technical Depth</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            800: '#292524',
+                            900: '#1c1917',
+                            950: '#0c0a09',
+                        }
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fafaf9; /* stone-50 */
+            color: #292524; /* stone-800 */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-stone-200 selection:text-stone-900">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+<span class="font-serif text-2xl italic font-semibold text-stone-900 dark:text-stone-50">Dhruv Mehta</span>
+<div class="hidden md:flex items-center space-x-10">
+<a class="font-serif text-lg tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors" href="#profile">Profile</a>
+<a class="font-serif text-lg tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors" href="#experience">Experience</a>
+<a class="font-serif text-lg tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors" href="#capabilities">Capabilities</a>
+<a class="font-serif text-lg tracking-tight text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors" href="#projects">Projects</a>
+<a class="px-5 py-2 bg-stone-900 text-stone-50 text-sm font-label uppercase tracking-widest hover:bg-stone-800 transition-all" href="#contact">Contact</a>
+</div>
+<button class="md:hidden text-stone-900">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden bg-gradient-to-b from-stone-100 via-stone-50 to-white">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-stone-400 via-transparent to-transparent"></div>
+</div>
+<div class="max-w-7xl mx-auto px-8 w-full relative z-10">
+<div class="max-w-4xl">
+<p class="text-stone-500 font-label uppercase tracking-[0.3em] mb-8 text-sm">Strategic Governance &amp; Systems Analysis</p>
+<h1 class="font-headline text-6xl md:text-8xl text-stone-900 leading-[1.05] tracking-tight mb-10">
+                    Business continuity with <span class="italic font-light">technical depth.</span>
+</h1>
+<p class="text-xl md:text-2xl text-stone-600 font-body leading-relaxed mb-12 max-w-2xl">
+                    Bridging the gap between enterprise resilience and analytical rigor through Risk Governance, Information Security, and Business Analysis.
+                </p>
+<div class="flex flex-wrap gap-6 items-center">
+<a class="px-10 py-5 bg-stone-900 text-stone-50 text-base font-label uppercase tracking-widest hover:bg-stone-800 transition-all flex items-center group" href="#contact">
+                        Contact
+                        <span class="material-symbols-outlined ml-3 group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="px-10 py-5 border border-stone-300 text-stone-800 text-base font-label uppercase tracking-widest hover:bg-stone-100 transition-all" href="#experience">
+                        View Experience
+                    </a>
+</div>
+</div>
+</div>
+<div class="absolute bottom-12 left-8 hidden lg:block">
+<div class="flex gap-16 text-stone-400">
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase tracking-widest font-bold text-stone-500">Focus Areas</span>
+<span class="text-sm font-label">Risk Governance</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase tracking-widest font-bold text-stone-500">Security</span>
+<span class="text-sm font-label">Information Security</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase tracking-widest font-bold text-stone-500">Analysis</span>
+<span class="text-sm font-label">Business Analysis</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Profile Section -->
+<section class="py-32 bg-white" id="profile">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid lg:grid-cols-12 gap-16 items-start">
+<div class="lg:col-span-5">
+<div class="relative group">
+<div class="absolute -inset-4 bg-stone-100 -z-10 transition-transform group-hover:scale-[1.02]"></div>
+<img alt="Professional Portrait" class="w-full grayscale contrast-110 shadow-sm" data-alt="Professional portrait of a man in business attire, clean architectural background, soft natural lighting, high-end editorial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoTlXaQ_bzSh9Aco_s6Uph5SeEUvPSM9BwURamphzQSPbDch2cBt3dY1UONcz14Uxv7ZTRZyVrcp5qBfu444MSQhaCb3XsfhSjc3OFzJgXVKYN136g7BRH2Erwjd8qYv4AMRl9tc9kgMoAsjqiduNscQ0ag1QKjMJE9WA-0GSxAY3yZ2yTuaIcP348cHkNHy_8hHlRHa-9RaYYQ9dhvQPQH88JWBDFwsP43e83H588ph1Y_6sn-WheoEVqUvSD41xqxcggbewWPQ"/>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col justify-center h-full">
+<span class="font-label text-stone-400 uppercase tracking-widest text-xs mb-4">About Dhruv Mehta</span>
+<h2 class="font-headline text-4xl md:text-5xl text-stone-900 mb-8 leading-tight">Analytical precision meet executive strategy.</h2>
+<div class="space-y-6 text-stone-600 text-lg leading-relaxed max-w-2xl">
+<p>
+                            My approach combines a rigorous academic foundation from <span class="text-stone-900 font-medium">Georgia Tech</span> with extensive hands-on experience in complex financial and healthcare environments.
+                        </p>
+<p>
+                            Specializing in Business Continuity Planning (BCP) and Risk Governance, I focus on building resilient systems that protect organizational integrity while enabling technical innovation. My background in Information Security ensures that every analytical decision is grounded in a deep understanding of modern threat landscapes.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Professional Experience -->
+<section class="py-32 bg-stone-50 border-y border-stone-200/50" id="experience">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-20">
+<span class="font-label text-stone-400 uppercase tracking-widest text-xs mb-4 block">Professional History</span>
+<h2 class="font-headline text-4xl md:text-5xl text-stone-900">Career Trajectory</h2>
+</div>
+<div class="space-y-24">
+<!-- Role 1 -->
+<div class="grid lg:grid-cols-12 gap-8 items-start relative">
+<div class="lg:col-span-4">
+<h3 class="text-2xl font-serif italic text-stone-900 mb-1">First Abu Dhabi Bank (FAB)</h3>
+<p class="font-label text-stone-500 uppercase tracking-wider text-xs">Information Security &amp; Business Continuity</p>
+</div>
+<div class="lg:col-span-8 border-l border-stone-300 pl-12">
+<div class="max-w-2xl">
+<p class="text-stone-800 text-xl leading-relaxed mb-6">
+                                Spearheaded critical resilience frameworks within the UAE's largest bank. Focused on the convergence of operational risk and information security.
+                            </p>
+<ul class="space-y-4 text-stone-600">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-stone-400 mt-1" data-icon="check_circle">check_circle</span>
+<span>Developed comprehensive BCP strategies for high-frequency trading and retail banking operations.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-stone-400 mt-1" data-icon="check_circle">check_circle</span>
+<span>Orchestrated cross-departmental risk assessments to align with UAE Central Bank regulations.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-stone-400 mt-1" data-icon="check_circle">check_circle</span>
+<span>Implemented automated security reporting workflows using Python and SQL integration.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Role 2 -->
+<div class="grid lg:grid-cols-12 gap-8 items-start relative">
+<div class="lg:col-span-4">
+<h3 class="text-2xl font-serif italic text-stone-900 mb-1">Delta Dental</h3>
+<p class="font-label text-stone-500 uppercase tracking-wider text-xs">Systems Analysis &amp; Quality Assurance</p>
+</div>
+<div class="lg:col-span-8 border-l border-stone-300 pl-12">
+<div class="max-w-2xl">
+<p class="text-stone-800 text-xl leading-relaxed mb-6">
+                                Managed data-driven quality assurance processes for complex insurance systems, ensuring seamless claim processing and data integrity.
+                            </p>
+<ul class="space-y-4 text-stone-600">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-stone-400 mt-1" data-icon="check_circle">check_circle</span>
+<span>Streamlined QA cycles through the implementation of automated regression testing scripts.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-stone-400 mt-1" data-icon="check_circle">check_circle</span>
+<span>Collaborated with product teams to translate business requirements into technical specifications.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Capabilities Section -->
+<section class="py-32 bg-white" id="capabilities">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+<div>
+<span class="font-label text-stone-400 uppercase tracking-widest text-xs mb-4 block">Core Expertise</span>
+<h2 class="font-headline text-4xl md:text-5xl text-stone-900">Functional Capabilities</h2>
+</div>
+<div class="max-w-md text-stone-500 font-body italic border-l-2 border-stone-200 pl-6">
+                    A multi-disciplinary approach to organizational resilience and data-driven decision making.
+                </div>
+</div>
+<div class="grid md:grid-cols-2 gap-1 px-1 bg-stone-200 border border-stone-200">
+<div class="bg-white p-12">
+<span class="material-symbols-outlined text-4xl text-stone-400 mb-8" data-icon="verified_user">verified_user</span>
+<h3 class="text-2xl font-serif mb-4 text-stone-900">Areas of Expertise</h3>
+<ul class="space-y-3">
+<li class="font-label text-stone-600 uppercase tracking-wide text-xs">Business Continuity Management</li>
+<li class="font-label text-stone-600 uppercase tracking-wide text-xs">Information Security Governance</li>
+<li class="font-label text-stone-600 uppercase tracking-wide text-xs">Disaster Recovery Planning</li>
+<li class="font-label text-stone-600 uppercase tracking-wide text-xs">Regulatory Compliance (SOC2, ISO27001)</li>
+<li class="font-label text-stone-600 uppercase tracking-wide text-xs">Risk Mitigation Strategies</li>
+</ul>
+</div>
+<div class="bg-white p-12">
+<span class="material-symbols-outlined text-4xl text-stone-400 mb-8" data-icon="analytics">analytics</span>
+<h3 class="text-2xl font-serif mb-4 text-stone-900">Analysis &amp; QA</h3>
+<ul class="space-y-3">
+<li class="font-label text-stone-600 uppercase tracking-wide text-xs">Business Process Mapping</li>
+<li class="font-label text-stone-600 uppercase tracking-wide text-xs">Technical Requirement Gathering</li>
+<li class="font-label text-stone-600 uppercase tracking-wide text-xs">Quality Assurance Automation</li>
+<li class="font-label text-stone-600 uppercase tracking-wide text-xs">UAT Management</li>
+<li class="font-label text-stone-600 uppercase tracking-wide text-xs">System Integration Testing</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-32 bg-stone-100 relative" id="projects">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-20 text-center">
+<span class="font-label text-stone-400 uppercase tracking-widest text-xs mb-4 block">Academic Highlights</span>
+<h2 class="font-headline text-4xl md:text-5xl text-stone-900">Selected Research &amp; Projects</h2>
+</div>
+<div class="grid md:grid-cols-2 gap-12">
+<!-- Card 1 -->
+<div class="group bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="h-64 overflow-hidden relative">
+<img alt="Deep Learning Visualization" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110" data-alt="Abstract visualization of neural networks and data flow, tech-centric but refined, muted blues and greys, soft bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6nb_lxx-s8xhWVlyKxCysgvSnlNiCTcB0nulR34eEWe4XAZb9dNiRmcXSprKIHLen3tIMuRY0fPsUG4eh2fHPpa_N-CBXzl8fqJNkS0WkyCaX2piIyPNzpZogp_tcAKPAF1W-_xajgTYp0oUTOYltA9AdAjHNq2Hz8UCYfCYxgAt2fd2WeYI4LSy5nxg0mg-yNPo9qX_nXO50vmpfcWXHVPvTPeiXfsmzNHzBdokXamlgt7Zr1tV1aVxaciNqcyt2X_JYKWAIGA"/>
+<div class="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="p-10">
+<span class="text-xs font-label text-stone-400 uppercase tracking-widest mb-2 block">Technical Deep-Dive</span>
+<h3 class="text-2xl font-serif text-stone-900 mb-4">Facebook Deep Learning Project</h3>
+<p class="text-stone-600 leading-relaxed mb-6">
+                            Advanced implementation of convolutional neural networks for pattern recognition, exploring architectural efficiencies in large-scale social data environments.
+                        </p>
+<div class="flex gap-4">
+<span class="px-3 py-1 bg-stone-50 border border-stone-200 text-[10px] font-label uppercase tracking-wider text-stone-500">Python</span>
+<span class="px-3 py-1 bg-stone-50 border border-stone-200 text-[10px] font-label uppercase tracking-wider text-stone-500">PyTorch</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="h-64 overflow-hidden relative">
+<img alt="Financial Analysis Visualization" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110" data-alt="Conceptual image of stock market charts and financial data analytics, minimalist aesthetic, light grey tones, clean lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvpJUfItLcs69G_XtSN8trIaNU_FhBC8inbMMsGM1AClkiIqy1phtzzMnTgCF0yrOuSX3N7j3PmjPJXoo3axQt1JchNrlgd_59wHfUwvIsWNHQMlwnZ1mRz6vo76sWiQAlfYrLpGBjdiBw17VF6iaa9kEJ5hPErVcUlHeG6aHTlsbANPHZ6K-hWg4OiXdBjwTxfnVV6n_al1pH3LfevcwRZlhOgIH6pmI7ytFSBaCzXzibJQv3yFTu5-WkW5oBOJrvnhK8bd8OfQ"/>
+<div class="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="p-10">
+<span class="text-xs font-label text-stone-400 uppercase tracking-widest mb-2 block">Analytical Model</span>
+<h3 class="text-2xl font-serif text-stone-900 mb-4">Machine Learning Financial Analysis</h3>
+<p class="text-stone-600 leading-relaxed mb-6">
+                            Predictive modeling for market volatility using ensemble learning methods, focused on identifying high-risk signals in structured financial datasets.
+                        </p>
+<div class="flex gap-4">
+<span class="px-3 py-1 bg-stone-50 border border-stone-200 text-[10px] font-label uppercase tracking-wider text-stone-500">R</span>
+<span class="px-3 py-1 bg-stone-50 border border-stone-200 text-[10px] font-label uppercase tracking-wider text-stone-500">Scikit-Learn</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education & Tools -->
+<section class="py-32 bg-white">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid lg:grid-cols-2 gap-24">
+<!-- Education -->
+<div>
+<h2 class="font-headline text-3xl text-stone-900 mb-12">Academic Pedigree</h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-16 h-16 bg-stone-50 flex items-center justify-center border border-stone-200">
+<span class="material-symbols-outlined text-stone-400" data-icon="school">school</span>
+</div>
+<div>
+<h4 class="text-xl font-serif text-stone-900">Georgia Institute of Technology</h4>
+<p class="text-stone-500 font-label text-sm uppercase tracking-wider mb-2">Master of Science (Professional)</p>
+<p class="text-stone-600">Focus on Analytical Methods and Systems Engineering.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-16 h-16 bg-stone-50 flex items-center justify-center border border-stone-200">
+<span class="material-symbols-outlined text-stone-400" data-icon="history_edu">history_edu</span>
+</div>
+<div>
+<h4 class="text-xl font-serif text-stone-900">Bachelor of Engineering</h4>
+<p class="text-stone-500 font-label text-sm uppercase tracking-wider mb-2">Technical Core</p>
+<p class="text-stone-600">Foundation in systems architecture and logic design.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Tools -->
+<div>
+<h2 class="font-headline text-3xl text-stone-900 mb-12">Technology Snapshot</h2>
+<div class="grid grid-cols-2 gap-x-8 gap-y-10">
+<div>
+<span class="text-[10px] font-label uppercase tracking-[0.2em] text-stone-400 block mb-4">Programming</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-stone-100 text-xs font-label text-stone-700">Python</span>
+<span class="px-3 py-1 bg-stone-100 text-xs font-label text-stone-700">SQL</span>
+<span class="px-3 py-1 bg-stone-100 text-xs font-label text-stone-700">R</span>
+</div>
+</div>
+<div>
+<span class="text-[10px] font-label uppercase tracking-[0.2em] text-stone-400 block mb-4">Compliance</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-stone-100 text-xs font-label text-stone-700">GRC Tools</span>
+<span class="px-3 py-1 bg-stone-100 text-xs font-label text-stone-700">ISO Standards</span>
+</div>
+</div>
+<div>
+<span class="text-[10px] font-label uppercase tracking-[0.2em] text-stone-400 block mb-4">Visualization</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-stone-100 text-xs font-label text-stone-700">Tableau</span>
+<span class="px-3 py-1 bg-stone-100 text-xs font-label text-stone-700">PowerBI</span>
+</div>
+</div>
+<div>
+<span class="text-[10px] font-label uppercase tracking-[0.2em] text-stone-400 block mb-4">Security</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-stone-100 text-xs font-label text-stone-700">SIEM</span>
+<span class="px-3 py-1 bg-stone-100 text-xs font-label text-stone-700">Vulnerability Mgmt</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 bg-stone-900 text-stone-50" id="contact">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid lg:grid-cols-2 gap-20">
+<div>
+<h2 class="font-headline text-5xl md:text-6xl mb-8">Let's discuss <br/><span class="italic font-light">resilience.</span></h2>
+<p class="text-stone-400 text-xl font-body max-w-md leading-relaxed">
+                        Inquiries regarding consulting, full-time opportunities, or speaking engagements on Risk and Security.
+                    </p>
+</div>
+<div class="flex flex-col justify-end">
+<div class="space-y-10">
+<div class="group">
+<span class="text-[10px] font-label uppercase tracking-[0.3em] text-stone-500 block mb-2">Direct Email</span>
+<a class="text-3xl font-serif border-b border-stone-800 group-hover:border-stone-50 transition-colors pb-2 inline-block" href="mailto:dhruv.mehta@example.com">dhruv.mehta@example.com</a>
+</div>
+<div class="flex flex-wrap gap-12">
+<div>
+<span class="text-[10px] font-label uppercase tracking-[0.3em] text-stone-500 block mb-2">Telephone</span>
+<span class="text-xl font-serif">+1 (555) 012-3456</span>
+</div>
+<div>
+<span class="text-[10px] font-label uppercase tracking-[0.3em] text-stone-500 block mb-2">Location</span>
+<span class="text-xl font-serif">San Francisco, CA</span>
+</div>
+<div>
+<span class="text-[10px] font-label uppercase tracking-[0.3em] text-stone-500 block mb-2">Professional Network</span>
+<a class="text-xl font-serif hover:text-stone-400 transition-colors" href="#">LinkedIn</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-950 border-t border-stone-200 dark:border-stone-800 py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto">
+<p class="font-sans text-sm tracking-wide uppercase text-stone-600 dark:text-stone-400">
+                © 2024 Dhruv Mehta. All rights reserved.
+            </p>
+<div class="flex space-x-8 mt-6 md:mt-0">
+<a class="font-sans text-sm tracking-wide uppercase text-stone-500 hover:text-stone-800 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-sans text-sm tracking-wide uppercase text-stone-500 hover:text-stone-800 transition-opacity" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

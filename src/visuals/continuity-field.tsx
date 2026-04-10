@@ -22,17 +22,17 @@ export function ContinuityField({ className = "" }: ContinuityFieldProps) {
       >
         <defs>
           <radialGradient id="heroGlow" cx="0" cy="0" r="1">
-            <stop offset="0%" stopColor="rgba(0, 229, 255, 0.95)" />
-            <stop offset="26%" stopColor="rgba(0, 218, 243, 0.32)" />
-            <stop offset="100%" stopColor="rgba(0, 218, 243, 0)" />
+            <stop offset="0%" stopColor="rgba(209, 180, 151, 0.72)" />
+            <stop offset="26%" stopColor="rgba(209, 180, 151, 0.2)" />
+            <stop offset="100%" stopColor="rgba(209, 180, 151, 0)" />
           </radialGradient>
           <linearGradient id="signalStroke" x1="143" x2="733" y1="226" y2="632">
-            <stop offset="0%" stopColor="#70d8c8" stopOpacity="0.15" />
-            <stop offset="45%" stopColor="#00daf3" stopOpacity="0.88" />
-            <stop offset="100%" stopColor="#70d8c8" stopOpacity="0.22" />
+            <stop offset="0%" stopColor="#bec7b7" stopOpacity="0.18" />
+            <stop offset="45%" stopColor="#6b7a65" stopOpacity="0.78" />
+            <stop offset="100%" stopColor="#9a7b5a" stopOpacity="0.3" />
           </linearGradient>
           <filter id="signalBlur" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur result="blur" stdDeviation="12" />
+            <feGaussianBlur result="blur" stdDeviation="9" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -94,11 +94,11 @@ export function ContinuityField({ className = "" }: ContinuityFieldProps) {
               <circle
                 cx={node.x}
                 cy={node.y}
-                fill="rgba(0, 218, 243, 0.22)"
+                fill="rgba(107, 122, 101, 0.14)"
                 r={node.size * 2}
               />
-              <circle cx={node.x} cy={node.y} fill="#70d8c8" r={node.size} />
-              <circle cx={node.x} cy={node.y} fill="#f4f7fb" r={node.size / 2.5} />
+              <circle cx={node.x} cy={node.y} fill="#6b7a65" r={node.size} />
+              <circle cx={node.x} cy={node.y} fill="#fffdf9" r={node.size / 2.5} />
             </g>
           ))}
         </g>

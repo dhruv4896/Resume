@@ -11,7 +11,7 @@ export function HomePage() {
   const emailHref = `mailto:${contact.email}`;
 
   return (
-    <div className="page-shell min-h-screen bg-ink-950 text-ivory">
+    <div className="page-shell min-h-screen bg-canvas text-stone-900">
       <HeroSection
         emailHref={emailHref}
         linkedinHref={contact.linkedin}
@@ -29,8 +29,9 @@ export function HomePage() {
           resumeUrl={resumeUrl}
         />
       </main>
-      <footer className="bg-slate-950 px-6 py-6 text-center text-[0.68rem] uppercase tracking-[0.28em] text-[color:rgba(222,225,247,0.45)]">
-        Dhruv Mehta • business continuity, information security, and analytical rigor
+      <footer className="border-t border-[color:var(--outline)] bg-[rgba(255,253,249,0.92)] px-6 py-8 text-center text-[0.68rem] uppercase tracking-[0.26em] text-stone-500">
+        Dhruv Mehta / business continuity / information security / analytical
+        rigor
       </footer>
     </div>
   );
