@@ -1,75 +1,73 @@
-export type NavItem = {
-  href: string;
-  label: string;
+export type SummaryGroup = {
+  items: string[];
+  title: string;
 };
 
 export type ExperienceItem = {
-  company: string;
-  title: string;
-  period: string;
   bullets: string[];
+  company: string;
+  period: string;
+  title: string;
 };
 
-export type CapabilityGroup = {
-  description: string;
-  name: string;
+export type ExpertiseGroup = {
   items: string[];
+  title: string;
 };
 
 export type ProjectItem = {
-  title: string;
-  period: string;
   bullets: string[];
-  highlight: string;
-  accent: "cyan" | "teal";
+  metric: string;
+  metricLabel: string;
+  period: string;
+  title: string;
 };
 
 export type EducationItem = {
-  institution: string;
   degree: string;
   detail: string;
-  period: string;
   gpa: string;
+  period: string;
+  school: string;
 };
 
-export const navItems: NavItem[] = [
-  { href: "#about", label: "Profile" },
-  { href: "#experience", label: "Experience" },
-  { href: "#capabilities", label: "Capabilities" },
-  { href: "#projects", label: "Projects" },
-  { href: "#summary", label: "Education + Contact" },
+export type ContactDetails = {
+  email: string;
+  linkedin: string;
+  phone: string;
+  resumeHref: string;
+};
+
+export const resumeIntro =
+  "Business continuity and information security professional with prior business analysis experience and a Master's in Computer Science (Machine Learning) from Georgia Tech. Background spans banking, healthcare, software delivery, requirements gathering, testing, SQL-based data work, and applied machine learning projects.";
+
+export const roleFraming =
+  "Business Continuity / Information Security / Business Analysis / Machine Learning";
+
+export const summaryGroups: SummaryGroup[] = [
+  {
+    title: "Professional Summary",
+    items: [
+      "Highly analytical individual with strong programming and communication skills.",
+      "Skilled in Data Analytics, Machine Learning, Deep Learning, and Business Analysis.",
+      "Two years of professional experience in Business Analysis.",
+      "One and a half years of professional experience in Banking and Security domain.",
+      "Experience in working across the full stack of software development.",
+      "Strong analytical skills coupled with problem-solving in deadline-driven projects.",
+    ],
+  },
+  {
+    title: "Core Focus",
+    items: [
+      "Business Continuity",
+      "Information Security Governance",
+      "Risk & Impact Assessment",
+      "Requirements & UAT",
+      "SQL & Data Analysis",
+      "Machine Learning / NLP",
+    ],
+  },
 ];
-
-export const heroContent = {
-  eyebrow: "Business continuity / Information security / Business analysis",
-  headline: "Business continuity with technical depth.",
-  intro:
-    "Business continuity and information security professional with prior business analysis experience and a machine learning background from Georgia Tech. Experience spans banking, healthcare, requirements analysis, testing, SQL-based data work, and applied ML projects.",
-  name: "Dhruv Mehta",
-  signalNotes: [
-    {
-      label: "Current focus",
-      text: "Continuity governance, stakeholder coordination, risk review, and resilience planning within banking.",
-    },
-    {
-      label: "Technical foundation",
-      text: "Machine learning, NLP, SQL-based analysis, UAT planning, and structured delivery across banking and healthcare.",
-    },
-  ],
-};
-
-export const aboutContent = {
-  intro:
-    "Dhruv Mehta brings together business continuity, information security, business analysis, and machine learning. His background combines risk and impact assessment, continuity planning, governance, stakeholder coordination, requirements gathering, UAT and testing, SQL-based analysis, and applied ML work in both banking and healthcare contexts.",
-  title: "A risk-aware operator with analytical breadth.",
-  support: [
-    "Current work centers on continuity, governance, and risk thinking within banking, while earlier roles and academic projects add strong analytical, technical, and data-oriented depth.",
-    "The through-line is disciplined decision-making: understanding impact, translating requirements clearly, testing rigorously, and keeping systems resilient under pressure.",
-  ],
-};
-
-export const experienceIntro =
-  "Current work centers on continuity, governance, and risk thinking within banking, while earlier roles and academic projects add strong analytical, technical, and data-oriented depth.";
 
 export const experienceItems: ExperienceItem[] = [
   {
@@ -77,64 +75,71 @@ export const experienceItems: ExperienceItem[] = [
     title: "Information Security - Business Continuity",
     period: "Feb 2021 - Present",
     bullets: [
-      "Liaise with stakeholders on system implementation and testing and provide continuity-focused input.",
-      "Analyze risks and potential impacts across business units and recommend mitigation measures and strategies.",
-      "Develop and update management plans including the Crisis Management Plan and Pandemic Response Plan.",
-      "Provide second-line governance to business functions across the bank.",
-      "Monitor the bank-wide Business Continuity Program and provide updates to senior management.",
-      "Review impact and risk assessments including Business Impact Analysis (BIA), Risk & Control Self-Assessment (RCSA), and Facility Risk Assessment (BCRA).",
+      "Liaise with various stakeholders on system implementation and testing and provide inputs from continuity perspective.",
+      "Analyze the risks and potential impacts to various Business Units and recommend corrective measures and strategies to mitigate or prevent continuity risks.",
+      "Development and update of bank-wide management-level plans like Crisis Management Plan and Pandemic Response Plan.",
+      "Advise and provide governance from 2nd Line perspective to various Business functions across the bank.",
+      "Monitor the bank-wide Business Continuity Program and provide regular updates to senior management.",
+      "Review and counsel on impact and risk assessments like Business Impact Analysis (BIA), Risk & Control Self-Assessment (RCSA), and Facility Risk Assessment (BCRA).",
     ],
   },
   {
-    company: "Delta Dental of California",
+    company: "Delta Dental of California, San Francisco, CA",
     title: "Business Analyst",
     period: "Mar 2016 - Jun 2018",
     bullets: [
-      "Served as point of contact with healthcare marketplaces including Covered CA and CMS on data transmission protocols and business requirements.",
-      "Gathered requirements from stakeholders and subject matter experts to define scope and application-process requirements.",
-      "Organized and led bi-weekly vendor meetings to onboard marketplace customers and document business processes and protocols.",
-      "Analyzed user stories for feasibility and coordinated with the project manager and technical lead on business rules.",
-      "Performed regression, functional, end-to-end, and UAT testing; created test plans and supported QA execution.",
-      "Developed SQL queries including joins and sub-joins to retrieve data across multiple tables.",
+      "Be the point of contact with healthcare marketplaces including Covered CA and CMS to decide on data transmission protocols and convey business requirements to appropriate resources.",
+      "Gather requirements from stakeholders and subject matter experts to define application-process scope and requirements.",
+      "Organize and lead bi-weekly vendor meetings to onboard customers of a health-insurance marketplace and document business processes and protocols.",
+      "Analyze feasibility of desired functionality on user stories and determine associated business rules by coordinating with the project manager and technical lead.",
+      "Interact with stakeholders, subject matter experts, developers, business analysts, managers, and business users to understand existing business systems and processes.",
+      "Perform Regression Testing, Functional Testing, End-to-End testing, and UAT.",
+      "Analyze existing systems to identify and create basic to moderately complex test plans.",
+      "Develop SQL queries including joins and sub-joins to fetch data from multiple tables.",
+      "Assist QA team in the preparation of test data, execution of test plans, and on-time completion of tasks.",
     ],
   },
 ];
 
-export const capabilityGroups: CapabilityGroup[] = [
+export const expertiseGroups: ExpertiseGroup[] = [
   {
-    name: "Continuity & Governance",
-    description:
-      "Work centered on risk interpretation, resilience planning, and bank-wide continuity oversight.",
+    title: "Machine Learning & Data",
     items: [
-      "Business continuity planning",
-      "Risk and impact assessment",
-      "Governance support",
-      "Senior-management reporting",
-      "Stakeholder alignment",
+      "Ability to develop and deploy machine learning models for data analysis and classification tasks.",
+      "Strong background in image and natural language processing techniques using Keras, TensorFlow, and PyTorch.",
+      "Skilled in data mining and scraping including assessing data quality and cleaning irrelevant data.",
+      "Excellent working knowledge of machine learning algorithms involving clustering, reinforcement learning, supervised and unsupervised learning.",
     ],
   },
   {
-    name: "Analysis & Delivery",
-    description:
-      "Structured requirements and testing discipline shaped by business analysis work in healthcare systems.",
+    title: "Analysis & QA",
     items: [
-      "Requirements gathering",
-      "BRD / FRD / FRS analysis",
-      "UAT and test planning",
-      "SQL querying and data verification",
-      "Cross-functional coordination",
+      "Proficiency in creating Test Plans, Test Strategies, Test Scenarios, and Test Cases.",
+      "Ability to review and analyze BRD, FRD/FRS and develop appropriate test cases.",
+      "Data manipulation and extraction using SQL and data visualization using Tableau, MS Visio, and D3 (Javascript).",
+      "Active involvement in data verification on different databases.",
+      "Act as a liaison between stakeholders, business users, and technical teams to clarify requirements.",
+      "Involved in Test Planning, Test Cases, Issue Resolution, and Report Generation.",
     ],
   },
   {
-    name: "Technical Foundation",
-    description:
-      "Georgia Tech machine learning study and applied projects that deepen technical credibility.",
+    title: "Technical Toolkit",
     items: [
-      "Machine learning",
-      "Deep learning",
-      "NLP and image processing",
-      "Data mining and scraping",
-      "Python / TensorFlow / PyTorch / Keras",
+      "Software Development Methods: RUP, Agile Scrum, Waterfall",
+      "Coding Languages: Python (Pandas, NumPy), PyTorch, Keras, TensorFlow, R, Java, C++, Javascript",
+      "Database Management: MySQL, Oracle 8.x/9.x, SQL Server",
+      "Tools: Eclipse, NetBeans, IntelliJ, Github, Docker",
+      "Project Management: MS Office, JIRA Software",
+    ],
+  },
+  {
+    title: "Domains & Strengths",
+    items: [
+      "Domain Expertise: Data Science, Machine Learning, Deep Learning, Banking, Healthcare",
+      "Selected Strengths: Stakeholder Liaison, Continuity Planning, Risk Assessment, Requirements Analysis",
+      "Selected Strengths: Governance Support, UAT & QA, SQL Querying, Documentation",
+      "Support full-stack software development activities across analysis, testing, and delivery.",
+      "Excellent working knowledge of methodologies like RUP, Agile Scrum, and Waterfall.",
     ],
   },
 ];
@@ -143,83 +148,53 @@ export const projects: ProjectItem[] = [
   {
     title: "Facebook Deep Learning Project",
     period: "Aug 2020 - Dec 2020",
-    highlight: "Reduced training time and storage requirements by 50%.",
-    accent: "cyan",
     bullets: [
-      "Explored an alternative to pre-training state-of-the-art NLP applications using Transformers and Transformer Adapters.",
-      "Applied the work to classification tasks in computer science and biomedicine.",
-      "Reduced training time and storage requirements by 50%.",
+      "Goal of the project was to find an alternative to pre-training state-of-the-art NLP applications using Transformers and Transformer Adapters.",
+      "Works on classification tasks in the field of Computer Science and Biomedicine.",
+      "Reduces training time and storage requirements by 50%.",
     ],
+    metric: "50%",
+    metricLabel: "training time and storage reduction",
   },
   {
     title: "Machine Learning Financial Analysis",
     period: "Aug 2019 - Dec 2019",
-    highlight: "Reported average accuracy of 85% for forecasts up to one week ahead.",
-    accent: "teal",
     bullets: [
-      "Built a stock-market predictor for indices including S&P 500, NASDAQ, and NIFTY.",
-      "Used Random Forest, XGBoost, Support Vector Machines, and Decision Tree Regression with technical and fundamental indicators.",
-      "Reported average accuracy of 85% for forecasts up to one week ahead.",
+      "Created a stock-market predictor for indices like S&P 500, NASDAQ, and NIFTY.",
+      "Uses Random Forests, XGBoost, Support-Vector Machines, and Decision Tree Regression combined with technical and fundamental indicators.",
+      "Predicts future index prices for up to a week with on-average accuracy of 85%.",
     ],
+    metric: "85%",
+    metricLabel: "forecast accuracy up to one week ahead",
   },
 ];
 
 export const education: EducationItem[] = [
   {
-    institution: "Georgia Institute of Technology",
     degree: "M.S. in Computer Science",
     detail: "Specialization in Machine Learning",
-    period: "2018 - 2020",
+    school: "Georgia Tech, Atlanta, GA",
+    period: "Fall 2018 - Fall 2020",
     gpa: "GPA 3.8/4.0",
   },
   {
-    institution: "Georgia Institute of Technology",
     degree: "B.S. in Mechanical Engineering",
     detail: "Minor in Computer Science",
-    period: "2011 - 2015",
+    school: "Georgia Tech, Atlanta, GA",
+    period: "Fall 2011 - Fall 2015",
     gpa: "GPA 3.5/4.0",
   },
 ];
 
-export const toolGroups = [
-  {
-    label: "Languages & Data",
-    items: [
-      "Python",
-      "Pandas",
-      "NumPy",
-      "R",
-      "Java",
-      "C++",
-      "JavaScript",
-      "MySQL",
-      "Oracle",
-      "SQL Server",
-    ],
-  },
-  {
-    label: "ML & Engineering",
-    items: ["PyTorch", "Keras", "TensorFlow", "GitHub", "Docker"],
-  },
-  {
-    label: "Workflow & Delivery",
-    items: [
-      "JIRA",
-      "Agile Scrum",
-      "RUP",
-      "Waterfall",
-      "Eclipse",
-      "NetBeans",
-      "IntelliJ",
-      "MS Office",
-    ],
-  },
-];
-
-export const contact = {
+export const contact: ContactDetails = {
   email: "dhruv.mehta2205@gmail.com",
   linkedin: "https://linkedin.com/in/dhruv-mehta2205",
   phone: "+971 50 7031775",
-  note:
-    "Open to conversations around continuity strategy, risk-aware delivery, and analytical roles that benefit from structured technical depth.",
+  resumeHref: "cv/dhruv-mehta-cv.pdf",
 };
+
+export const stitchSource = {
+  desktopScreenId: "151e8a2e6a6149fd9c7b6158baf59614",
+  mobileScreenId: "e6087f3fb91447f4a860a4526afb04fa",
+  projectId: "17091861260108282947",
+} as const;

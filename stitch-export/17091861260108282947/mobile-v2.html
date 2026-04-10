@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dhruv Mehta | Business Continuity &amp; Information Security</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#dde2f3",
+                    "surface-dim": "#d4dbdd",
+                    "surface-tint": "#585e6c",
+                    "tertiary": "#5e5c78",
+                    "on-error-container": "#752121",
+                    "error": "#9f403d",
+                    "outline-variant": "#adb3b4",
+                    "on-surface": "#2d3435",
+                    "on-secondary-fixed-variant": "#5a5b61",
+                    "secondary-container": "#e2e2e9",
+                    "inverse-on-surface": "#9c9d9d",
+                    "inverse-primary": "#e8eeff",
+                    "outline": "#757c7d",
+                    "secondary-dim": "#515359",
+                    "tertiary-dim": "#52506b",
+                    "primary": "#585e6c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#f9f8ff",
+                    "surface-variant": "#dde4e5",
+                    "on-tertiary-container": "#4b4a65",
+                    "on-primary-fixed-variant": "#565b69",
+                    "surface-bright": "#f9f9f9",
+                    "on-primary": "#f7f7ff",
+                    "surface-container": "#ebeeef",
+                    "secondary-fixed-dim": "#d4d4db",
+                    "on-surface-variant": "#5a6061",
+                    "tertiary-fixed": "#dad6f7",
+                    "primary-dim": "#4c5260",
+                    "on-background": "#2d3435",
+                    "error-dim": "#4e0309",
+                    "secondary-fixed": "#e2e2e9",
+                    "error-container": "#fe8983",
+                    "inverse-surface": "#0c0f0f",
+                    "on-error": "#fff7f6",
+                    "tertiary-fixed-dim": "#ccc9e9",
+                    "on-primary-fixed": "#393f4c",
+                    "secondary": "#5d5f65",
+                    "on-tertiary-fixed-variant": "#55536f",
+                    "primary-fixed": "#dde2f3",
+                    "on-primary-container": "#4c525f",
+                    "surface-container-highest": "#dde4e5",
+                    "surface-container-high": "#e4e9ea",
+                    "on-secondary-container": "#505157",
+                    "on-tertiary-fixed": "#393751",
+                    "on-secondary-fixed": "#3d3f45",
+                    "surface": "#f9f9f9",
+                    "primary-fixed-dim": "#cfd4e5",
+                    "background": "#f9f9f9",
+                    "tertiary-container": "#dad6f7",
+                    "on-tertiary": "#fcf7ff",
+                    "surface-container-low": "#f2f4f4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "0px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #2d3435;
+            -webkit-font-smoothing: antialiased;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+        .editorial-content {
+            grid-column: 1 / -1;
+        }
+        @media (min-width: 768px) {
+            .editorial-content {
+                grid-column: 3 / 11;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 py-4 z-50 bg-[#f9f9f9]/80 backdrop-blur-md shadow-[0px_10px_30px_rgba(45,52,53,0.04)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#585e6c]" data-icon="menu_book">menu_book</span>
+<span class="font-['Newsreader'] text-xl font-medium tracking-tight text-[#2d3435]">DHRUV MEHTA</span>
+</div>
+<a class="text-[#5a6061] font-['Inter'] text-sm tracking-wide hover:text-[#2d3435] transition-colors duration-200" href="cv/dhruv-mehta-cv.pdf">View CV</a>
+</header>
+<main class="pt-24 pb-12">
+<!-- Hero Section -->
+<section class="px-6 mb-20">
+<div class="editorial-grid">
+<div class="editorial-content">
+<h1 class="font-headline text-5xl md:text-7xl mb-6 leading-tight font-light italic">Dhruv Mehta</h1>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label text-[10px] uppercase tracking-widest">Business Continuity</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label text-[10px] uppercase tracking-widest">Information Security</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label text-[10px] uppercase tracking-widest">Business Analysis</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label text-[10px] uppercase tracking-widest">Machine Learning</span>
+</div>
+<p class="font-headline text-2xl md:text-3xl text-on-surface-variant leading-relaxed mb-10 max-w-2xl">
+                        Business continuity and information security professional with prior business analysis experience and a Master's in Computer Science (Machine Learning) from Georgia Tech.
+                    </p>
+<p class="font-body text-base text-on-surface-variant leading-relaxed mb-12 max-w-xl">
+                        Background spans banking, healthcare, software delivery, requirements gathering, testing, SQL-based data work, and applied machine learning projects.
+                    </p>
+<div class="flex flex-col gap-4">
+<a class="bg-primary text-on-primary px-8 py-4 text-center font-label text-sm uppercase tracking-widest hover:bg-primary-dim transition-all active:scale-95" href="mailto:dhruv.mehta2205@gmail.com">Email Inquiry</a>
+<div class="grid grid-cols-2 gap-4">
+<a class="border border-outline-variant/30 px-6 py-4 text-center font-label text-sm uppercase tracking-widest hover:bg-surface-container-lowest transition-all" href="https://linkedin.com/in/dhruv-mehta2205">LinkedIn</a>
+<a class="border border-outline-variant/30 px-6 py-4 text-center font-label text-sm uppercase tracking-widest hover:bg-surface-container-lowest transition-all" href="cv/dhruv-mehta-cv.pdf">Download CV</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Professional Summary & Core Focus -->
+<section class="bg-surface-container-low py-20 px-6">
+<div class="editorial-grid">
+<div class="editorial-content">
+<h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-12 border-l-2 border-primary pl-4">Professional Summary &amp; Core Focus</h2>
+<div class="space-y-12">
+<div class="bg-surface-container-lowest p-8 shadow-sm">
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="text-primary font-headline italic text-xl">01</span>
+<p class="font-body text-on-surface-variant leading-relaxed">Strategic planning for organizational resilience and risk mitigation in high-compliance environments.</p>
+</li>
+<li class="flex gap-4">
+<span class="text-primary font-headline italic text-xl">02</span>
+<p class="font-body text-on-surface-variant leading-relaxed">End-to-end management of information security frameworks and cross-functional technology initiatives.</p>
+</li>
+<li class="flex gap-4">
+<span class="text-primary font-headline italic text-xl">03</span>
+<p class="font-body text-on-surface-variant leading-relaxed">Integration of advanced analytics and SQL-based data validation for process optimization.</p>
+</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h3 class="font-label text-xs uppercase tracking-widest text-on-surface mb-4">Core Competencies</h3>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs bg-surface-container-highest px-2 py-1">Risk Assessment</span>
+<span class="text-xs bg-surface-container-highest px-2 py-1">BIA &amp; Recovery Strategy</span>
+<span class="text-xs bg-surface-container-highest px-2 py-1">ISO 22301</span>
+<span class="text-xs bg-surface-container-highest px-2 py-1">SDLC</span>
+<span class="text-xs bg-surface-container-highest px-2 py-1">UAT Execution</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Professional Experience -->
+<section class="py-24 px-6 bg-surface-bright">
+<div class="editorial-grid">
+<div class="editorial-content">
+<h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-16 border-l-2 border-primary pl-4">Professional History</h2>
+<div class="space-y-24">
+<!-- Experience Item 1 -->
+<div class="relative">
+<div class="mb-4">
+<span class="font-label text-xs text-on-surface-variant uppercase tracking-widest block mb-2">Abu Dhabi, UAE | 2021 — Present</span>
+<h3 class="font-headline text-3xl text-on-surface mb-1">First Abu Dhabi Bank (FAB)</h3>
+<p class="font-body text-primary text-sm font-medium">Business Continuity &amp; Information Security Management</p>
+</div>
+<div class="mt-8 space-y-4 max-w-2xl">
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">Driving organizational resilience through the development and execution of enterprise-wide Business Continuity Plans and Information Security strategies.</p>
+<ul class="space-y-4 font-body text-on-surface-variant text-sm list-none border-l border-outline-variant/20 pl-6">
+<li>Facilitated Business Impact Analysis (BIA) workshops across key departments to define Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO).</li>
+<li>Orchestrated large-scale IT Disaster Recovery drills and crisis communication simulations, reducing potential downtime by 30%.</li>
+<li>Aligned business units with ISO 22301 standards and regulatory requirements from central banking authorities.</li>
+<li>Analyzed security vulnerabilities and implemented remedial controls to mitigate operational and cyber risks.</li>
+</ul>
+</div>
+</div>
+<!-- Experience Item 2 -->
+<div class="relative">
+<div class="mb-4">
+<span class="font-label text-xs text-on-surface-variant uppercase tracking-widest block mb-2">San Francisco, CA | 2018 — 2020</span>
+<h3 class="font-headline text-3xl text-on-surface mb-1">Delta Dental of California</h3>
+<p class="font-body text-primary text-sm font-medium">Business Analyst</p>
+</div>
+<div class="mt-8 space-y-4 max-w-2xl">
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">Bridged the gap between healthcare business needs and software delivery teams within an Agile/Scrum framework.</p>
+<ul class="space-y-4 font-body text-on-surface-variant text-sm list-none border-l border-outline-variant/20 pl-6">
+<li>Spearheaded requirements gathering for dental claim processing systems, translating complex business rules into functional specifications.</li>
+<li>Leveraged SQL for deep-dive data analysis and validation of claims data, identifying and resolving over 200 processing anomalies.</li>
+<li>Authored and executed comprehensive User Acceptance Testing (UAT) scripts, ensuring 99.9% release stability.</li>
+<li>Optimized cross-functional communication between clinical staff and engineering leads, speeding up feature delivery cycles.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise & Toolkit -->
+<section class="bg-surface-container-low py-24 px-6">
+<div class="editorial-grid">
+<div class="editorial-content">
+<h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-16 border-l-2 border-primary pl-4">Expertise &amp; Toolkit</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-12">
+<div class="bg-surface-container-lowest p-8 border-b-4 border-primary">
+<h3 class="font-headline text-xl mb-4 italic">Security &amp; Compliance</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                                    Advanced proficiency in ISO 22301, NIST frameworks, and risk management life cycles. Specialized in translating regulatory requirements into actionable technical controls and recovery protocols.
+                                </p>
+</div>
+<div class="bg-surface-container-lowest p-8 border-b-4 border-primary">
+<h3 class="font-headline text-xl mb-4 italic">Analytical Engineering</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                                    Experienced in requirements elicitation and SDLC management. Skilled in bridging technical engineering pods with high-level business stakeholders to deliver compliant software solutions.
+                                </p>
+</div>
+</div>
+<div class="space-y-8">
+<h3 class="font-label text-xs uppercase tracking-[0.2em] text-on-surface mb-6">Technical Arsenal</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-body text-sm">Python / Scikit-Learn</span>
+<span class="font-label text-[10px] text-primary uppercase">Advanced</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-body text-sm">SQL / Data Validation</span>
+<span class="font-label text-[10px] text-primary uppercase">Expert</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-body text-sm">Tableau / Data Visualization</span>
+<span class="font-label text-[10px] text-primary uppercase">Proficient</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-body text-sm">JIRA / Confluence</span>
+<span class="font-label text-[10px] text-primary uppercase">Advanced</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-body text-sm">Risk Assessment Software</span>
+<span class="font-label text-[10px] text-primary uppercase">Lead</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Selected Projects -->
+<section class="py-24 px-6 bg-surface-bright">
+<div class="editorial-grid">
+<div class="editorial-content">
+<h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-16 border-l-2 border-primary pl-4">Selected Case Studies</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/10">
+<div class="bg-surface-container-lowest p-10 flex flex-col justify-between">
+<div>
+<span class="font-label text-[10px] text-primary uppercase tracking-widest mb-4 block">Applied Deep Learning</span>
+<h3 class="font-headline text-2xl mb-6">Facebook Deep Learning Project</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed mb-8">
+                                    Developed a neural network model to optimize content delivery algorithms. Focused on computational efficiency and scalability within large-scale social data environments.
+                                </p>
+</div>
+<div class="pt-8 border-t border-outline-variant/20 flex items-baseline gap-2">
+<span class="font-headline text-4xl text-primary">50%</span>
+<span class="font-label text-xs uppercase text-on-surface-variant">reduction in latency</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-10 flex flex-col justify-between">
+<div>
+<span class="font-label text-[10px] text-primary uppercase tracking-widest mb-4 block">Financial Analytics</span>
+<h3 class="font-headline text-2xl mb-6">Machine Learning Financial Analysis</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed mb-8">
+                                    Implemented predictive modeling for market fluctuation analysis using ensemble methods. Focused on rigorous feature selection and cross-validation for high-stakes forecasting.
+                                </p>
+</div>
+<div class="pt-8 border-t border-outline-variant/20 flex items-baseline gap-2">
+<span class="font-headline text-4xl text-primary">85%</span>
+<span class="font-label text-xs uppercase text-on-surface-variant">prediction accuracy</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education & Contact -->
+<section class="py-24 px-6 bg-surface-container-low">
+<div class="editorial-grid">
+<div class="editorial-content">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+<div>
+<h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-12 border-l-2 border-primary pl-4">Academic Background</h2>
+<div class="space-y-8">
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/10">
+<h3 class="font-headline text-2xl mb-2">Georgia Institute of Technology</h3>
+<p class="font-body text-primary text-sm font-medium mb-4">Master of Science in Computer Science</p>
+<div class="space-y-2 font-body text-sm text-on-surface-variant">
+<p class="flex justify-between"><span>Specialization:</span> <strong>Machine Learning</strong></p>
+<p class="flex justify-between"><span>Cumulative GPA:</span> <strong>3.9 / 4.0</strong></p>
+<p class="flex justify-between"><span>Completion:</span> <strong>2020</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-12 border-l-2 border-primary pl-4">Contact &amp; Inquiries</h2>
+<div class="space-y-8">
+<div class="flex items-center gap-6 group">
+<div class="w-12 h-12 bg-primary flex items-center justify-center text-on-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest mb-1">Email Address</p>
+<a class="font-body text-on-surface hover:text-primary transition-colors" href="mailto:dhruv.mehta2205@gmail.com">dhruv.mehta2205@gmail.com</a>
+</div>
+</div>
+<div class="flex items-center gap-6 group">
+<div class="w-12 h-12 bg-primary flex items-center justify-center text-on-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="phone_iphone">phone_iphone</span>
+</div>
+<div>
+<p class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest mb-1">Contact Number</p>
+<a class="font-body text-on-surface hover:text-primary transition-colors" href="tel:+971507031775">+971 50 7031775</a>
+</div>
+</div>
+<div class="flex items-center gap-6 group">
+<div class="w-12 h-12 bg-primary flex items-center justify-center text-on-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+</div>
+<div>
+<p class="font-label text-[10px] uppercase text-on-surface-variant tracking-widest mb-1">Professional Network</p>
+<a class="font-body text-on-surface hover:text-primary transition-colors" href="https://linkedin.com/in/dhruv-mehta2205">linkedin.com/in/dhruv-mehta2205</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-6 flex flex-col md:flex-row justify-between items-center gap-4 bg-[#f9f9f9] border-t border-[#adb3b4]/15">
+<p class="font-['Inter'] text-xs uppercase tracking-[0.05em] text-[#5a6061]">© 2024 Dhruv Mehta. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-xs uppercase tracking-[0.05em] text-[#5a6061] hover:text-[#2d3435] underline decoration-1 underline-offset-4 transition-all duration-300" href="https://linkedin.com/in/dhruv-mehta2205">LinkedIn</a>
+<a class="font-['Inter'] text-xs uppercase tracking-[0.05em] text-[#5a6061] hover:text-[#2d3435] underline decoration-1 underline-offset-4 transition-all duration-300" href="mailto:dhruv.mehta2205@gmail.com">Email</a>
+</div>
+</footer>
+</body></html>

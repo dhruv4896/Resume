@@ -1,0 +1,18 @@
+{
+  "mode": "exact-wrapper",
+  "projectId": "17091861260108282947",
+  "title": "Dhruv Mehta Resume Microsite",
+  "sourceScreens": {
+    "desktop": "151e8a2e6a6149fd9c7b6158baf59614",
+    "mobile": "e6087f3fb91447f4a860a4526afb04fa"
+  },
+  "sourceExports": {
+    "desktop": "desktop-v2.html",
+    "mobile": "mobile-v2.html"
+  },
+  "notes": [
+    "Layout direction is derived from native Stitch exports.",
+    "Runtime HTML is corrected against the original resume and redesigned CV before rendering.",
+    "The React app renders the approved HTML in exact-wrapper mode."
+  ]
+}

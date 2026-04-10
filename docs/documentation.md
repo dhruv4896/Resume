@@ -1,18 +1,17 @@
 # Documentation.md
 
 ## Current status
-- milestone: light-mode redesign, QA, and deployment configuration completed
+- milestone: resume microsite rebuild implemented in exact-wrapper mode
 - branch: main
-- local preview status: verified locally with Vite preview and headless Edge captures
-- build status: `npm run build` passed
+- local preview status: pending fresh verification after dependency install
+- build status: pending fresh verification after dependency install
 
 ## Decisions made
-- Native Stitch tool transport still returns `Auth required`, so the redesign pass used the verified direct Stitch MCP fallback against `https://stitch.googleapis.com/mcp`.
-- A new Stitch project was created for the redesign: `projects/800567313739347498` (`Dhruv Mehta Portfolio Light`).
-- The selected visual direction is a light editorial system with warm ivory surfaces, muted sage and bronze accents, and serif-led hierarchy.
-- The exported Stitch artifacts were saved under `stitch-export/800567313739347498/`.
-- The implementation keeps the content resume-true even where Stitch-generated sample copy drifted into invented details.
-- The public site now surfaces email, LinkedIn, and phone, with the downloadable CV still available from `public/cv/dhruv-mehta-cv.pdf`.
+- Native Stitch plugin is the active design source for this recovery pass.
+- The shipping project is `projects/17091861260108282947` (`Dhruv Mehta Resume Microsite`).
+- The retained source screens are desktop `151e8a2e6a6149fd9c7b6158baf59614` and mobile `e6087f3fb91447f4a860a4526afb04fa`.
+- Stitch provided the layout direction and design tokens, but its generated copy was not sufficiently resume-true, so the exported HTML is corrected at runtime against the normalized resume content model before rendering.
+- The site now targets a light, text-first resume microsite rather than a visual portfolio treatment.
 
 ## Source notes
 - original resume: `X:/Downloads/Dhruv_Mehta_Resume.pdf`
@@ -21,11 +20,18 @@
 - confirmed LinkedIn: `linkedin.com/in/dhruv-mehta2205`
 - confirmed phone: `+971 50 7031775`
 
+## Artifact paths
+- Stitch export folder: `stitch-export/17091861260108282947/`
+- design contract: `design/DESIGN.md`
+- runtime wrapper: `src/components/stitch/StitchResumeFrame.tsx`
+- HTML correction builder: `src/components/stitch/buildStitchResumeHtml.ts`
+- normalized content packet: `src/content/profile.ts`
+
 ## QA notes
-- desktop: verified live local preview at `http://127.0.0.1:4269/Resume/` using headless Edge at 1440px width
-- tablet: responsive behavior is layout-driven and covered by the fluid grid and clamp-based typography
-- mobile: verified live local preview at `http://127.0.0.1:4269/Resume/` using headless Edge at 390px width; CTA overflow issue was fixed by stacking actions on small screens
+- The rebuilt site must be re-verified on desktop and mobile after installing dependencies and running the fresh build.
+- The accepted visual target is a light editorial microsite with no stock imagery, no dark sections, and no invented resume claims.
 
 ## Known follow-ups
-- Re-run the GitHub Pages deployment after pushing the redesign.
+- Re-run lint, typecheck, production build, and responsive browser verification.
+- Push the rebuild to `main` and re-run the GitHub Pages deployment.
 - GitHub Pages may still require a repo admin to enable publishing if Actions cannot create the Pages site automatically.

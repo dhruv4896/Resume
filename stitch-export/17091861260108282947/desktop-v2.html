@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dhruv Mehta | Business Continuity &amp; Machine Learning</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#d0d5dd",
+                        "secondary-container": "#dee3eb",
+                        "tertiary": "#59647d",
+                        "inverse-on-surface": "#9e9d98",
+                        "on-primary-container": "#505254",
+                        "surface-container-low": "#fcf9f3",
+                        "surface-dim": "#e4e3d7",
+                        "on-primary": "#f7f7fa",
+                        "surface-container": "#f6f4ec",
+                        "on-tertiary-fixed-variant": "#4d5870",
+                        "surface-bright": "#fffcf7",
+                        "surface-variant": "#eae8de",
+                        "primary-dim": "#515255",
+                        "on-secondary-fixed-variant": "#575c63",
+                        "on-primary-fixed": "#3e3f42",
+                        "secondary": "#60656c",
+                        "error-dim": "#4e0309",
+                        "tertiary-fixed-dim": "#c3cfeb",
+                        "inverse-primary": "#f9f9fc",
+                        "tertiary-fixed": "#d1ddfa",
+                        "secondary-fixed": "#dee3eb",
+                        "primary-container": "#e2e2e5",
+                        "primary-fixed": "#e2e2e5",
+                        "on-surface-variant": "#65655c",
+                        "primary": "#5d5e61",
+                        "on-error-container": "#752121",
+                        "on-secondary-fixed": "#3b4047",
+                        "on-tertiary-container": "#434e66",
+                        "on-surface": "#383831",
+                        "error": "#a64542",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-dim": "#545960",
+                        "tertiary-dim": "#4d5871",
+                        "on-background": "#383831",
+                        "outline-variant": "#babab0",
+                        "on-secondary-container": "#4d5259",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#5d5e61",
+                        "on-tertiary-fixed": "#303c53",
+                        "tertiary-container": "#d1ddfa",
+                        "surface-container-highest": "#eae8de",
+                        "surface-container-high": "#f0eee5",
+                        "inverse-surface": "#0e0e0c",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "outline": "#818178",
+                        "on-primary-fixed-variant": "#5a5c5e",
+                        "background": "#fffcf7",
+                        "primary-fixed-dim": "#d4d4d7",
+                        "error-container": "#fe8983",
+                        "surface": "#fffcf7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #fffcf7; color: #383831; font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .headline-display { font-family: 'Newsreader', serif; }
+        .label-caps { font-family: 'Inter', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#fffcf7] shadow-[0_12px_40px_rgba(56,56,49,0.05)] transition-all duration-300">
+<nav class="flex justify-between items-center w-full px-6 md:px-20 py-8 max-w-[1440px] mx-auto">
+<div class="text-2xl font-serif italic text-[#383831] tracking-tight">Dhruv Mehta</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-[#65655c] Inter text-[13px] uppercase tracking-[0.05em] hover:text-[#383831] transition-colors duration-300" href="#experience">Experience</a>
+<a class="text-[#65655c] Inter text-[13px] uppercase tracking-[0.05em] hover:text-[#383831] transition-colors duration-300" href="#expertise">Expertise</a>
+<a class="text-[#65655c] Inter text-[13px] uppercase tracking-[0.05em] hover:text-[#383831] transition-colors duration-300" href="#projects">Projects</a>
+<a class="text-[#65655c] Inter text-[13px] uppercase tracking-[0.05em] hover:text-[#383831] transition-colors duration-300" href="#education">Education</a>
+</div>
+<a class="bg-primary text-on-primary px-8 py-3 Inter text-[13px] uppercase tracking-[0.05em] hover:opacity-90 transition-opacity" href="cv/dhruv-mehta-cv.pdf">
+                View CV
+            </a>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-[1440px] mx-auto px-6 md:px-20 py-24 border-b border-outline-variant/15">
+<div class="grid md:grid-cols-12 gap-12 items-start">
+<div class="md:col-span-8">
+<span class="label-caps text-on-surface-variant block mb-6">Introduction</span>
+<h1 class="headline-display text-7xl md:text-8xl font-light leading-[1.1] mb-12 tracking-tight">
+                        Dhruv Mehta
+                    </h1>
+<p class="headline-display text-3xl italic text-on-surface-variant leading-relaxed max-w-3xl">
+                        Business Continuity / Information Security / Business Analysis / Machine Learning
+                    </p>
+</div>
+<div class="md:col-span-4 pt-4">
+<div class="bg-surface-container-low p-8 border-l-4 border-primary">
+<p class="text-on-surface leading-relaxed text-lg italic">
+                            Dedicated professional with an analytical focus on the intersection of organizational resilience and intelligent data systems.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Professional Summary -->
+<section class="max-w-[1440px] mx-auto px-6 md:px-20 py-32 bg-surface-container-low">
+<div class="grid md:grid-cols-12 gap-16">
+<div class="md:col-span-4">
+<h2 class="headline-display text-4xl mb-8">Professional Summary</h2>
+<div class="space-y-4">
+<div class="label-caps text-primary border-b border-primary/20 pb-2 inline-block">Core Focus Areas</div>
+<ul class="space-y-3 font-medium">
+<li>Business Continuity</li>
+<li>Information Security</li>
+<li>Risk Management</li>
+<li>Machine Learning</li>
+<li>Data Analytics</li>
+<li>Strategic Planning</li>
+</ul>
+</div>
+</div>
+<div class="md:col-span-8">
+<ul class="space-y-8 text-xl leading-relaxed text-on-surface-variant">
+<li class="flex gap-6">
+<span class="text-primary font-serif italic text-2xl">01</span>
+                            Expertise in managing and aligning Business Continuity Management (BCM) and Information Security frameworks with organizational objectives.
+                        </li>
+<li class="flex gap-6">
+<span class="text-primary font-serif italic text-2xl">02</span>
+                            Proven ability to conduct comprehensive Business Impact Analysis (BIA) and risk assessments to identify critical business functions and mitigate potential disruptions.
+                        </li>
+<li class="flex gap-6">
+<span class="text-primary font-serif italic text-2xl">03</span>
+                            Strong foundation in Machine Learning and Data Science, with experience in building predictive models and automating analytical workflows.
+                        </li>
+<li class="flex gap-6">
+<span class="text-primary font-serif italic text-2xl">04</span>
+                            Skilled in leveraging Python, SQL, and data visualization tools to extract actionable insights and drive data-informed decision-making.
+                        </li>
+<li class="flex gap-6">
+<span class="text-primary font-serif italic text-2xl">05</span>
+                            Demonstrated success in leading cross-functional projects, managing stakeholder relationships, and delivering solutions within specified timelines.
+                        </li>
+<li class="flex gap-6">
+<span class="text-primary font-serif italic text-2xl">06</span>
+                            Committed to continuous learning and staying updated with emerging trends in information security, risk management, and artificial intelligence.
+                        </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Experience -->
+<section class="max-w-[1440px] mx-auto px-6 md:px-20 py-32" id="experience">
+<span class="label-caps text-on-surface-variant block mb-12">Professional Experience</span>
+<div class="space-y-24">
+<!-- First Abu Dhabi Bank -->
+<div class="grid md:grid-cols-12 gap-8">
+<div class="md:col-span-4">
+<h3 class="headline-display text-2xl font-bold">First Abu Dhabi Bank</h3>
+<p class="label-caps text-on-surface-variant mt-2">Group Resilience Portfolio Analyst</p>
+<p class="text-on-surface-variant italic mt-4">Abu Dhabi, UAE | 2021 – Present</p>
+</div>
+<div class="md:col-span-8 border-l border-outline-variant/30 pl-12">
+<ul class="space-y-6 text-on-surface-variant leading-relaxed list-disc marker:text-primary">
+<li>Supported the implementation and maintenance of the Group Business Continuity Management (BCM) framework across various business units.</li>
+<li>Facilitated Business Impact Analysis (BIA) sessions with key stakeholders to identify critical business processes and recovery time objectives.</li>
+<li>Assisted in the development and documentation of Business Continuity Plans (BCPs) and disaster recovery strategies.</li>
+<li>Coordinated and monitored business continuity testing and exercise programs to validate the effectiveness of recovery procedures.</li>
+<li>Analyzed risk assessment data and provided recommendations for risk mitigation and resilience enhancements.</li>
+<li>Collaborated with the Information Security team to ensure alignment between BCM and IT disaster recovery plans.</li>
+<li>Prepared management reports and dashboards to track the status of resilience initiatives and compliance with regulatory requirements.</li>
+</ul>
+</div>
+</div>
+<!-- Delta Dental -->
+<div class="grid md:grid-cols-12 gap-8">
+<div class="md:col-span-4">
+<h3 class="headline-display text-2xl font-bold">Delta Dental of CA</h3>
+<p class="label-caps text-on-surface-variant mt-2">Quality Assurance / Business Analyst</p>
+<p class="text-on-surface-variant italic mt-4">Oakland, CA | 2018 – 2021</p>
+</div>
+<div class="md:col-span-8 border-l border-outline-variant/30 pl-12">
+<ul class="space-y-6 text-on-surface-variant leading-relaxed list-disc marker:text-primary">
+<li>Participated in the analysis and refinement of business requirements for dental insurance claims processing systems.</li>
+<li>Developed and executed comprehensive test plans and test cases to ensure the accuracy and reliability of system functionalities.</li>
+<li>Identified, documented, and tracked software defects, collaborating with developers for timely resolution.</li>
+<li>Assisted in performing user acceptance testing (UAT) and gathered feedback from business users to improve system usability.</li>
+<li>Conducted data analysis to identify trends and anomalies in claims processing, providing insights for process improvement.</li>
+<li>Contributed to the documentation of system processes and user manuals for internal stakeholders.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise & Toolkit -->
+<section class="bg-surface-container py-32" id="expertise">
+<div class="max-w-[1440px] mx-auto px-6 md:px-20">
+<span class="label-caps text-on-surface-variant block mb-12">Expertise &amp; Technical Toolkit</span>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
+<div>
+<h4 class="label-caps border-b border-primary pb-4 mb-6 text-primary">Core Expertise</h4>
+<ul class="space-y-3 text-on-surface">
+<li class="font-medium">Business Continuity Management</li>
+<li class="font-medium">Information Security Frameworks</li>
+<li class="font-medium">Risk Assessment &amp; Mitigation</li>
+<li class="font-medium">Machine Learning &amp; Data Modeling</li>
+</ul>
+</div>
+<div>
+<h4 class="label-caps border-b border-primary pb-4 mb-6 text-primary">Coding &amp; Data</h4>
+<ul class="space-y-3 text-on-surface">
+<li class="font-medium">Python (Scikit-Learn, Pandas, NumPy)</li>
+<li class="font-medium">SQL (PostgreSQL, Oracle)</li>
+<li class="font-medium">R Programming</li>
+<li class="font-medium">Tableau &amp; PowerBI</li>
+</ul>
+</div>
+<div>
+<h4 class="label-caps border-b border-primary pb-4 mb-6 text-primary">Technical Tools</h4>
+<ul class="space-y-3 text-on-surface">
+<li class="font-medium">Jira &amp; Confluence</li>
+<li class="font-medium">AWS (S3, SageMaker, EC2)</li>
+<li class="font-medium">GitHub / Version Control</li>
+<li class="font-medium">Fusion Risk Management</li>
+</ul>
+</div>
+<div>
+<h4 class="label-caps border-b border-primary pb-4 mb-6 text-primary">Project &amp; Domain</h4>
+<ul class="space-y-3 text-on-surface">
+<li class="font-medium">Agile &amp; Scrum Methodologies</li>
+<li class="font-medium">SDLC Management</li>
+<li class="font-medium">Financial Services (BFSI)</li>
+<li class="font-medium">Healthcare/Insurance Systems</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects -->
+<section class="max-w-[1440px] mx-auto px-6 md:px-20 py-32" id="projects">
+<span class="label-caps text-on-surface-variant block mb-12">Selected Projects</span>
+<div class="grid md:grid-cols-2 gap-12">
+<!-- Project 1 -->
+<div class="bg-surface-container-high p-12 flex flex-col justify-between">
+<div>
+<h3 class="headline-display text-3xl mb-6">Facebook Deep Learning Project</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg mb-8">
+                            Developed a high-fidelity recommendation engine using PyTorch and deep learning architectures to optimize content delivery algorithms.
+                        </p>
+<div class="bg-surface-bright/50 p-6 border-l border-primary">
+<span class="label-caps text-xs text-primary block mb-2">Primary Metric</span>
+<div class="headline-display text-4xl font-bold">50% reduction</div>
+<p class="text-sm text-on-surface-variant mt-2">in latency for content delivery processing.</p>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-surface-container-high p-12 flex flex-col justify-between">
+<div>
+<h3 class="headline-display text-3xl mb-6">Machine Learning Financial Analysis</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg mb-8">
+                            Leveraged Random Forest and XGBoost algorithms to analyze historical financial datasets for anomaly detection and market trend forecasting.
+                        </p>
+<div class="bg-surface-bright/50 p-6 border-l border-primary">
+<span class="label-caps text-xs text-primary block mb-2">Model Accuracy</span>
+<div class="headline-display text-4xl font-bold">85% accuracy</div>
+<p class="text-sm text-on-surface-variant mt-2">achieved in predicting quarterly financial shifts.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education -->
+<section class="bg-[#fcf9f3] py-32 border-t border-outline-variant/15" id="education">
+<div class="max-w-[1440px] mx-auto px-6 md:px-20">
+<span class="label-caps text-on-surface-variant block mb-12">Academic Background</span>
+<div class="space-y-16">
+<div class="flex flex-col md:flex-row justify-between items-baseline gap-4">
+<div>
+<h3 class="headline-display text-3xl">Georgia Institute of Technology</h3>
+<p class="text-on-surface-variant mt-2 italic">M.S. in Cybersecurity (Policy Track)</p>
+</div>
+<div class="text-right">
+<p class="font-bold">GPA: 3.8 / 4.0</p>
+<p class="label-caps text-on-surface-variant">Atlanta, GA | 2021 – 2023</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-baseline gap-4 pt-8 border-t border-outline-variant/10">
+<div>
+<h3 class="headline-display text-3xl">Georgia Institute of Technology</h3>
+<p class="text-on-surface-variant mt-2 italic">B.S. in Business Administration (IT Management)</p>
+</div>
+<div class="text-right">
+<p class="font-bold">GPA: 3.6 / 4.0</p>
+<p class="label-caps text-on-surface-variant">Atlanta, GA | 2014 – 2018</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="max-w-[1440px] mx-auto px-6 md:px-20 py-32 text-center">
+<h2 class="headline-display text-5xl mb-12">Let's Connect</h2>
+<div class="flex flex-wrap justify-center gap-12 text-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">call</span>
+<span>+971 50 7031775</span>
+</div>
+<div class="flex items-center gap-3 underline underline-offset-8 decoration-outline-variant hover:decoration-primary transition-colors">
+<span class="material-symbols-outlined text-primary">mail</span>
+<a href="mailto:dhruv.mehta2205@gmail.com">dhruv.mehta2205@gmail.com</a>
+</div>
+<div class="flex items-center gap-3 underline underline-offset-8 decoration-outline-variant hover:decoration-primary transition-colors">
+<span class="material-symbols-outlined text-primary">link</span>
+<a href="https://linkedin.com/in/dhruv-mehta2205" target="_blank">LinkedIn Profile</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#fcf9f3] w-full px-6 md:px-20 py-12 border-t border-[#babab0]/15">
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-lg font-serif text-[#383831]">Dhruv Mehta</div>
+<div class="Body: Inter text-[12px] tracking-wide text-[#5d5e61]">
+                © Dhruv Mehta. All rights reserved.
+            </div>
+<div class="flex gap-8">
+<a class="text-[#65655c] hover:text-[#383831] hover:underline transition-all" href="https://linkedin.com/in/dhruv-mehta2205">LinkedIn</a>
+<a class="text-[#65655c] hover:text-[#383831] hover:underline transition-all" href="mailto:dhruv.mehta2205@gmail.com">Email</a>
+</div>
+</div>
+</footer>
+</body></html>

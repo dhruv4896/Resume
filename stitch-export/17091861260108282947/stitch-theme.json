@@ -1,0 +1,25 @@
+{
+  "name": "Modern Archivist",
+  "colorMode": "LIGHT",
+  "fonts": {
+    "headline": "Newsreader",
+    "body": "Inter"
+  },
+  "colors": {
+    "background": "#fffcf7",
+    "surface": "#fcf9f3",
+    "surfaceElevated": "#ffffff",
+    "primary": "#5d5e61",
+    "text": "#383831",
+    "textMuted": "#65655c",
+    "outline": "#babab0"
+  },
+  "shape": {
+    "radius": 0
+  },
+  "provenance": {
+    "projectId": "17091861260108282947",
+    "desktopScreenId": "151e8a2e6a6149fd9c7b6158baf59614",
+    "mobileScreenId": "e6087f3fb91447f4a860a4526afb04fa"
+  }
+}
