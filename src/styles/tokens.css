@@ -1,0 +1,36 @@
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+
+  --color-ink-950: #0e1322;
+  --color-ink-900: #161b2b;
+  --color-ink-850: #1a1f2f;
+  --color-ink-800: #25293a;
+  --color-ink-700: #2f3445;
+  --color-ivory: #dee1f7;
+  --color-mist-50: #f7fafc;
+  --color-mist-100: #eef4f8;
+  --color-accent: #00daf3;
+  --color-accent-soft: #70d8c8;
+  --color-accent-ink: #00363d;
+}
+
+:root {
+  --surface: #0e1322;
+  --surface-low: #161b2b;
+  --surface-lift: #1a1f2f;
+  --surface-high: #25293a;
+  --surface-highest: #2f3445;
+  --surface-bright: #343949;
+  --surface-soft: #f7fafc;
+  --surface-muted: #eef4f8;
+  --on-background: #dee1f7;
+  --text-primary: #102132;
+  --text-muted: #667788;
+  --primary: #00daf3;
+  --primary-soft: #70d8c8;
+  --primary-ink: #00363d;
+  --outline: rgba(144, 144, 151, 0.16);
+  --shadow-ambient: 0 32px 120px rgba(9, 14, 28, 0.28);
+  --radius-panel: 2rem;
+}
