@@ -1,10 +1,10 @@
 import { expertiseGroups } from "../../content/profile";
 
 const toneClasses = [
-  "surface-tone--orange-soft",
-  "surface-tone--graphite",
   "surface-tone--bone",
-  "surface-tone--sage",
+  "surface-tone--graphite",
+  "surface-tone--utility",
+  "surface-tone--teal",
 ];
 
 export function ToolkitSection() {

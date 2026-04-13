@@ -1,6 +1,6 @@
 import { experienceItems } from "../../content/profile";
 
-const toneClasses = ["surface-tone--graphite", "surface-tone--orange-soft"];
+const toneClasses = ["surface-tone--graphite", "surface-tone--bone"];
 
 export function ExperienceSection() {
   return (

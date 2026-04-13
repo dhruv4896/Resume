@@ -33,7 +33,7 @@ export function SummarySection() {
               </div>
             </div>
 
-            <div className="hardware-panel surface-tone--sage p-6 sm:p-8">
+            <div className="hardware-panel surface-tone--utility p-6 sm:p-8">
               <div className="module-header">
                 <span className="status-led" data-active />
                 <p className="module-header__label">Core Focus</p>

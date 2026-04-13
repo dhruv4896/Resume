@@ -36,13 +36,11 @@ export function HeroSection() {
     >
       <div className="hero-shell__backdrop" aria-hidden="true">
         <div className="hero-shell__glow hero-shell__glow--orange" />
-        <div className="hero-shell__glow hero-shell__glow--sage" />
-        <div className="hero-shell__glow hero-shell__glow--yellow" />
-        <div className="technical-grid absolute inset-0 opacity-90" />
+        <div className="hero-shell__glow hero-shell__glow--teal" />
       </div>
 
-      <div className="mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl items-center px-6 py-16 sm:px-8 sm:py-20 lg:px-10">
-        <div className="grid w-full gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(24rem,0.95fr)] xl:items-end">
+      <div className="mx-auto flex min-h-[clamp(42rem,78svh,52rem)] max-w-7xl items-center px-6 py-12 sm:px-8 sm:py-16 lg:px-10">
+        <div className="grid w-full gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(22rem,0.95fr)] xl:items-center">
           <div className="hero-copy">
             <p className="section-plate mb-8">01 // Overview</p>
 
@@ -56,7 +54,7 @@ export function HeroSection() {
               {roleFraming.replaceAll(" / ", " // ")}
             </p>
 
-            <div className="hero-copy__summary surface-tone--bone">
+            <div className="hero-copy__summary hardware-panel surface-tone--bone">
               <p>{resumeIntro}</p>
             </div>
 

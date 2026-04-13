@@ -1,16 +1,18 @@
 # Documentation.md
 
 ## Current status
-- milestone: Teenage Engineering playful-product revamp implemented as a native React rebuild
+- milestone: calmer orange + ion teal utility-hardware reset implemented as a native React rebuild
 - branch: main
 - local preview status: verified locally in dark, light, and mobile
-- build status: passing locally after the playful-product revamp
+- build status: passing locally after the orange + teal token pass
 
 ## Decisions made
 - The shipping implementation uses native React sections, not an iframe wrapper.
-- The current visual system is derived from Stitch project `6307336002623577779`.
-- The approved dark desktop Stitch artifact and the same Stitch design system define the live React implementation.
-- Light mode is implemented from the same locked Stitch palette and structural rules because a second saved light screen did not enumerate successfully from Stitch in this session.
+- The current visual system is derived from Stitch project `5026288408684489434`.
+- The new design system direction is `Industrial Tactility / Physical Logic`, with orange primary controls and ion teal secondary rails/separators.
+- Light mode is now a white utility chassis rather than the prior bone/cream variant.
+- Decorative telemetry labels and fake panel naming are removed from the hero and project areas.
+- The hero now uses one factual console built from real focus areas and project outcomes instead of ambient widget graphics.
 - Resume data remains centralized in `src/content/profile.ts`.
 - Public links are corrected to the verified Dhruv Mehta email, LinkedIn, phone, and CV PDF.
 - Dark mode is the first-load default unless a stored user preference exists.
@@ -23,20 +25,19 @@
 ## Artifact paths
 - design contract: `design/DESIGN.md`
 - normalized content packet: `src/content/profile.ts`
-- Stitch export bundle: `stitch-export/6307336002623577779/`
-- exported dark desktop HTML: `stitch-export/6307336002623577779/dark-desktop.html`
-- exported dark desktop screenshot: `stitch-export/6307336002623577779/dark-desktop.png`
+- Stitch project reference: `projects/5026288408684489434`
 
 ## QA notes
-- The native React build preserves the full content packet and replaces the flatter prior hardware pass.
+- The native React build preserves the full content packet while replacing the old green/cream theme with orange + teal.
+- This pass removes fake labels such as `Model Adapter Grid`, `Forecast Signal`, `Signal Flow`, and `Activity`.
+- The project cards no longer ship decorative chart widgets; the right-side emphasis is now a factual measured-outcome module.
 - Verified locally:
   - dark mode is the first-load default
-  - light toggle persists in local storage
-  - `#projects` anchor updates correctly
+  - light mode persists from local storage
+  - `#projects` anchor is present in the verified light DOM
   - CV asset resolves under `/Resume/cv/dhruv-mehta-cv.pdf`
   - LinkedIn, email, and phone hrefs are correct
-- A current-tree and recent-history sensitive-data scan should be completed before push.
+  - desktop and mobile screenshots reflect the calmer orange + teal/white utility system
 
 ## Known follow-ups
-- Re-run the sensitive-data audit before push.
-- Keep future changes aligned to the same playful-product hardware direction instead of drifting back toward soft editorial minimalism.
+- Keep future changes aligned to the orange + teal utility-hardware direction instead of drifting back toward green, cream, or decorative dashboard motifs.

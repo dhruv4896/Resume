@@ -1,21 +1,21 @@
 # DESIGN.md
 
 ## Overview
-This site follows a Stitch-led **Teenage Engineering playful-product** direction implemented natively in React. The goal is a resume microsite that feels like a designed hardware object: dark by default, tactile, animated, and sharply segmented, while still presenting Dhruv Mehta's experience with full professional clarity.
+This site follows a Stitch-led **Teenage Engineering utility-hardware** direction implemented natively in React. The goal is a resume microsite that feels like a coherent designed object: dark by default, sharply ordered, orange-and-teal accented, and visually alive without drifting into fake telemetry or decorative dashboard language.
 
 ## Stitch Source
-- Active Stitch project: `projects/6307336002623577779`
-- Creative north star from Stitch: **Tactical Precision & Hardware Whimsy**
-- Shipping implementation uses the approved dark desktop artifact plus the same Stitch design system for the final token and layout translation
-- A matching light companion generation was requested repeatedly, but Stitch export enumeration did not return a second saved screen in this session; the shipped light mode therefore stays faithful to the locked Stitch palette choices: **Bone + Orange + Moss**
+- Active Stitch project: `projects/5026288408684489434`
+- Creative north star from Stitch: **Industrial Tactility / Physical Logic**
+- Shipping implementation uses the new Stitch design system as the visual contract for the orange + ion teal reset
+- Stitch generation updated the project design theme successfully, but saved screen enumeration did not return artifact URLs in this session; the shipped light and dark themes therefore follow the locked Stitch palette and behavior rules rather than a downloaded wrapper export
 
 ## Tone
 - Dark mode is the default experience
 - Matte charcoal chassis with warm paper text
-- Signal orange for primary controls and high-value emphasis
-- Moss and sage for support modules, status lights, and tonal separation
-- Bone and off-white light mode with stronger tonal jumps than a simple inversion
-- Formal and premium, but with a playful hardware-UI energy rather than a corporate brochure feel
+- Signal orange for primary controls and numeric emphasis
+- Ion teal for support rails, separators, and secondary emphasis
+- White utility light mode with crisp gray wells and hard segmentation rather than a cream editorial wash
+- Formal and premium, but more restrained than earlier playful-product passes
 
 ## Typography
 - Display, section labels, rail labels, and navigation: `Space Grotesk`
@@ -27,16 +27,15 @@ This site follows a Stitch-led **Teenage Engineering playful-product** direction
 ## Layout
 - Single-page resume microsite
 - Section order: hero, professional summary, experience, expertise/toolkit, selected projects, education/contact
-- First viewport is one composition: oversized name, factual role framing, verified CTAs, and an animated signal deck
+- First viewport is one composition: oversized name, factual role framing, verified CTAs, and one single right-hand console built from real focus areas and real project outcomes
 - Strong nested plates, recessed wells, segmented modules, and rail-based navigation
 - No soft card stacks, no hero cards, no stock imagery, and no invented social proof
+- Decorative telemetry, fake analytics labels, and free-floating graphic widgets do not ship
 
 ## Motion
 - Dark mode and light mode share the same structure and interaction language
-- Motion is persistent but disciplined:
-  - scan sweep in the hero system
-  - pulsing matrix cells
-  - animated signal bars and meter columns
+- Motion is restrained:
+  - one subtle scan sweep across the hero console
   - tactile press states on buttons and navigation
   - active section rail status
 - Reduced-motion mode removes continuous loops and preserves only essential state change
@@ -46,17 +45,18 @@ This site follows a Stitch-led **Teenage Engineering playful-product** direction
   - matte charcoal and graphite plates
   - warm paper text
   - signal orange controls
-  - moss/sage support surfaces
+  - ion teal support surfaces, rails, and glow accents
   - occasional utility yellow/red accents in small modules
 - Light companion:
-  - bone/off-white chassis
+  - white utility chassis
   - graphite text
-  - orange control surfaces
-  - moss/sage plates and structural wells
-  - clearer color variance across modules than the prior light theme
+  - gray control wells and neutral technical surfaces
+  - orange primary controls and ion teal secondary surfaces
+  - stronger contrast than the prior cream-toned light theme
 
 ## Content Rules
 - Use only verified resume-backed content from `src/content/profile.ts`
 - Preserve all summary items, experience bullets, expertise items, project metrics, education entries, and public contact details
 - Do not invent certifications, leadership scope, locations, placeholder metrics, or decorative filler copy
-- Decorative labels inside graphics must remain abstract and secondary to the resume content
+- Decorative graphics must remain abstract and secondary to the resume content
+- Real content should carry the page before ornament does
