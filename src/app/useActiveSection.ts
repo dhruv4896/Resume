@@ -2,10 +2,22 @@ import { useEffect, useState } from "react";
 
 import { sectionLinks, type SectionId } from "../content/site";
 
-const DEFAULT_SECTION: SectionId = "summary";
+const DEFAULT_SECTION: SectionId = "top";
+
+function resolveInitialSection(): SectionId {
+  if (typeof window === "undefined") {
+    return DEFAULT_SECTION;
+  }
+
+  const initialHash = window.location.hash.replace(/^#/, "");
+
+  return sectionLinks.some((link) => link.id === initialHash)
+    ? (initialHash as SectionId)
+    : DEFAULT_SECTION;
+}
 
 export function useActiveSection() {
-  const [activeSection, setActiveSection] = useState<SectionId>(DEFAULT_SECTION);
+  const [activeSection, setActiveSection] = useState<SectionId>(resolveInitialSection);
 
   useEffect(() => {
     if (typeof document === "undefined") {

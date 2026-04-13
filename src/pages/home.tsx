@@ -7,14 +7,23 @@ import { HeroSection } from "../components/sections/HeroSection";
 import { ProjectsSection } from "../components/sections/ProjectsSection";
 import { SummarySection } from "../components/sections/SummarySection";
 import { ToolkitSection } from "../components/sections/ToolkitSection";
-import { roleFraming } from "../content/profile";
+import { UtilityTickerBand } from "../components/ui/UtilityTickerBand";
+import { experienceItems, projects, roleFraming } from "../content/profile";
 import { publicLinks } from "../content/site";
 
 export function HomePage() {
   const activeSection = useActiveSection();
+  const pageTickerItems = [
+    ...experienceItems.map((item) => item.company),
+    ...projects.map((project) => `${project.metric} ${project.metricLabel}`),
+    "Georgia Tech",
+    "SQL",
+    "NLP",
+    "UAT",
+  ];
 
   return (
-    <div className="min-h-screen bg-[color:var(--page-bg)] text-[color:var(--text-primary)] transition-colors duration-300 motion-reduce:transition-none">
+    <div className="page-shell min-h-screen bg-[color:var(--page-bg)] text-[color:var(--text-primary)] transition-colors duration-300 motion-reduce:transition-none">
       <a
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[color:var(--primary-action-bg)] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[color:var(--primary-action-text)]"
         href="#summary"
@@ -30,6 +39,11 @@ export function HomePage() {
         <SummarySection />
         <ExperienceSection />
         <ToolkitSection />
+        <div className="border-y border-[color:var(--border-soft)] bg-[color:var(--section-soft)] py-3">
+          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
+            <UtilityTickerBand items={pageTickerItems} tone="teal" />
+          </div>
+        </div>
         <ProjectsSection />
         <EducationContactSection />
       </main>

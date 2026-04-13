@@ -1,5 +1,11 @@
-import { projects, resumeIntro, roleFraming } from "../../content/profile";
+import {
+  experienceItems,
+  projects,
+  resumeIntro,
+  roleFraming,
+} from "../../content/profile";
 import { publicLinks } from "../../content/site";
+import { UtilityTickerBand } from "../ui/UtilityTickerBand";
 import { PlayfulSignalVisual } from "./PlayfulSignalVisual";
 
 const focusAreas = [
@@ -29,14 +35,27 @@ function ArrowIcon() {
 }
 
 export function HeroSection() {
+  const heroTickerItems = [
+    ...roleFraming.split(" / "),
+    ...experienceItems.map((item) => item.company),
+    ...projects.map((project) => `${project.metric} ${project.metricLabel}`),
+    "Georgia Tech",
+    "SQL",
+    "Machine Learning",
+    "Business Continuity",
+  ];
+
   return (
     <section
       id="top"
       className="hero-shell relative isolate overflow-hidden bg-[color:var(--page-bg)]"
     >
       <div className="hero-shell__backdrop" aria-hidden="true">
+        <div className="hero-shell__grid technical-grid" />
         <div className="hero-shell__glow hero-shell__glow--orange" />
         <div className="hero-shell__glow hero-shell__glow--teal" />
+        <div className="hero-shell__rail hero-shell__rail--horizontal" />
+        <div className="hero-shell__rail hero-shell__rail--vertical" />
       </div>
 
       <div className="mx-auto flex min-h-[clamp(42rem,78svh,52rem)] max-w-7xl items-center px-6 py-12 sm:px-8 sm:py-16 lg:px-10">
@@ -53,6 +72,10 @@ export function HeroSection() {
             <p className="hero-copy__role">
               {roleFraming.replaceAll(" / ", " // ")}
             </p>
+
+            <div className="hero-copy__ticker">
+              <UtilityTickerBand items={heroTickerItems} tone="mixed" />
+            </div>
 
             <div className="hero-copy__summary hardware-panel surface-tone--bone">
               <p>{resumeIntro}</p>

@@ -1,6 +1,7 @@
 import { contact } from "./profile";
 
 export type SectionId =
+  | "top"
   | "summary"
   | "experience"
   | "expertise"
@@ -14,6 +15,7 @@ export type SectionLink = {
 };
 
 export const sectionLinks: SectionLink[] = [
+  { id: "top", label: "Overview", code: "01" },
   { id: "summary", label: "Summary", code: "02" },
   { id: "experience", label: "Experience", code: "03" },
   { id: "expertise", label: "Expertise", code: "04" },

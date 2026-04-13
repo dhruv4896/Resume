@@ -16,6 +16,18 @@ export function PlayfulSignalVisual({
   return (
     <div className="signal-console hardware-panel surface-tone--graphite">
       <div className="signal-console__scan" aria-hidden="true" />
+      <div className="signal-console__status-strip" aria-hidden="true">
+        <div className="status-cluster">
+          <span className="status-cluster__cell status-cluster__cell--orange" />
+          <span className="status-cluster__cell status-cluster__cell--teal" />
+          <span className="status-cluster__cell status-cluster__cell--yellow" />
+          <span className="status-cluster__cell status-cluster__cell--red" />
+        </div>
+        <div className="signal-console__trace">
+          <span className="signal-console__trace-line" />
+          <span className="signal-console__trace-line signal-console__trace-line--teal" />
+        </div>
+      </div>
 
       <div className="signal-console__section">
         <div className="module-header">

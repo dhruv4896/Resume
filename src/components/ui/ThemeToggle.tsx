@@ -41,26 +41,21 @@ function SunIcon() {
 export function ThemeToggle() {
   const { mode, toggleTheme } = useTheme();
   const nextMode = mode === "light" ? "dark" : "light";
+  const isDark = mode === "dark";
 
   return (
     <button
       type="button"
       aria-label={`Switch to ${nextMode} mode`}
-      aria-pressed={mode === "dark"}
+      aria-pressed={isDark}
       onClick={toggleTheme}
-      className="theme-toggle"
+      className="theme-toggle-button"
     >
-      <span className="theme-toggle__track">
-        <span className="theme-toggle__thumb" data-mode={mode} />
-        <span className="theme-toggle__label" data-active={mode === "dark"}>
-          <MoonIcon />
-          Dark
-        </span>
-        <span className="theme-toggle__label" data-active={mode === "light"}>
-          <SunIcon />
-          Light
-        </span>
+      <span className="theme-toggle-button__dot" data-mode={mode} />
+      <span className="theme-toggle-button__icon" aria-hidden="true">
+        {isDark ? <MoonIcon /> : <SunIcon />}
       </span>
+      <span className="theme-toggle-button__label">{isDark ? "Dark" : "Light"}</span>
     </button>
   );
 }
