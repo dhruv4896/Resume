@@ -1,38 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import desktopSourceHtml from "../../../stitch-export/17091861260108282947/desktop-v2.html?raw";
-import mobileSourceHtml from "../../../stitch-export/17091861260108282947/mobile-v2.html?raw";
-import { buildDesktopHtml, buildMobileHtml } from "./buildStitchResumeHtml";
-
-function useIsMobile() {
-  const getMatch = () =>
-    typeof window !== "undefined"
-      ? window.matchMedia("(max-width: 767px)").matches
-      : false;
-
-  const [isMobile, setIsMobile] = useState(getMatch);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 767px)");
-    const handleChange = (event: MediaQueryListEvent) =>
-      setIsMobile(event.matches);
-
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
-
-  return isMobile;
-}
+import desktopSourceHtml from "../../stitch/desktop-source.html?raw";
+import { buildStitchResumeHtml } from "./buildStitchResumeHtml";
 
 export function StitchResumeFrame() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const isMobile = useIsMobile();
-  const [height, setHeight] = useState(1200);
-
-  const desktopHtml = useMemo(() => buildDesktopHtml(desktopSourceHtml), []);
-  const mobileHtml = useMemo(() => buildMobileHtml(mobileSourceHtml), []);
-  const activeHtml = isMobile ? mobileHtml : desktopHtml;
+  const [height, setHeight] = useState(1600);
+  const html = useMemo(() => buildStitchResumeHtml(desktopSourceHtml), []);
 
   useEffect(() => {
     const iframe = iframeRef.current;
@@ -91,6 +65,7 @@ export function StitchResumeFrame() {
       doc.fonts?.ready.then(syncHeight).catch(() => undefined);
       window.setTimeout(syncHeight, 150);
       window.setTimeout(syncHeight, 500);
+      window.setTimeout(syncHeight, 1000);
     };
 
     iframe.addEventListener("load", handleLoad);
@@ -104,17 +79,20 @@ export function StitchResumeFrame() {
         syncHeight,
       );
     };
-  }, [activeHtml]);
+  }, [html]);
 
   return (
-    <div className="min-h-screen bg-[#fffcf7]">
+    <div className="min-h-screen bg-[#f7f9fb]">
+      <a className="skip-link" href="#resume-frame">
+        Skip to stitched site
+      </a>
       <iframe
-        key={isMobile ? "mobile" : "desktop"}
         ref={iframeRef}
-        srcDoc={activeHtml}
+        id="resume-frame"
+        srcDoc={html}
         style={{ height }}
         title="Dhruv Mehta resume microsite"
-        className="block w-full border-0 bg-[#fffcf7]"
+        className="block w-full border-0 bg-[#f7f9fb]"
       />
     </div>
   );

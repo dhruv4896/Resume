@@ -1,11 +1,12 @@
 # DESIGN.md
 
 ## Overview
-Create a light-mode editorial resume microsite for Dhruv Mehta. The site should feel formal, credible, and polished. It should read like a digital CV with premium hierarchy, not a startup portfolio and not a dashboard.
+Create a Stitch-led resume microsite for Dhruv Mehta that feels formal, light, editorial, and premium. The experience should read like a polished digital CV rather than a startup portfolio, dashboard, or speculative concept page.
 
 ## Tone
-- Light mode only
-- Warm neutral paper-like surfaces
+- Light editorial mode
+- Ivory paper-like surfaces
+- Slate and muted-gold accents
 - Formal and professional
 - Editorial rather than decorative
 - Text-first and hierarchy-driven
@@ -14,19 +15,18 @@ Create a light-mode editorial resume microsite for Dhruv Mehta. The site should 
 - Display and section headings: `Newsreader`
 - Body and UI text: `Inter`
 - Large serif masthead for the name
-- Tight but elegant heading rhythm
-- Smaller uppercase metadata labels with wide tracking
+- Elegant editorial contrast with restrained supporting labels
 
 ## Layout
 - Single-page resume microsite
 - Clear section sequence: hero, summary, experience, expertise/toolkit, projects, education/contact
 - Strong left alignment and generous whitespace
-- No dark sections
 - No stock imagery
-- No decorative graphics that are disconnected from the resume content
+- No decorative graphics disconnected from the resume content
+- Stitch-generated structure should remain the visual source of truth
 
 ## Interaction
-- Keep motion minimal
+- Keep motion restrained
 - Keep navigation factual and simple
 - Preserve only real resume CTAs: CV, LinkedIn, email, phone
 

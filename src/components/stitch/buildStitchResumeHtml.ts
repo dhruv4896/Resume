@@ -18,424 +18,344 @@ function escapeHtml(value: string) {
     .replaceAll("'", "&#39;");
 }
 
-function extractHead(html: string) {
-  const match = html.match(/<head>([\s\S]*?)<\/head>/i);
+function phoneHref(phone: string) {
+  return `tel:${phone.replaceAll(/[^+\d]/g, "")}`;
+}
 
-  if (!match) {
-    throw new Error("Could not extract Stitch head markup.");
+function resumeHref() {
+  if (typeof window === "undefined") {
+    return contact.resumeHref;
   }
 
-  return match[1].trim();
+  return new URL(
+    contact.resumeHref,
+    `${window.location.origin}${import.meta.env.BASE_URL}`,
+  ).toString();
 }
 
-function renderDesktopSummarySignals() {
+function openInNewTab(anchor: HTMLAnchorElement) {
+  anchor.target = "_blank";
+  anchor.rel = "noreferrer";
+}
+
+function setInnerHtml(element: Element | null | undefined, html: string) {
+  if (element instanceof HTMLElement) {
+    element.innerHTML = html;
+  }
+}
+
+function setText(element: Element | null | undefined, text: string) {
+  if (element) {
+    element.textContent = text;
+  }
+}
+
+function renderSummaryCards() {
   return summaryGroups[0].items
     .map(
-      (signal, index) => `
-        <li class="flex gap-6">
-          <span class="text-primary font-serif italic text-2xl">${String(index + 1).padStart(2, "0")}</span>
-          <span>${escapeHtml(signal)}</span>
-        </li>`,
-    )
-    .join("");
-}
-
-function renderDesktopExperience() {
-  return experienceItems
-    .map(
       (item) => `
-        <div class="grid md:grid-cols-12 gap-8">
-          <div class="md:col-span-4">
-            <h3 class="headline-display text-2xl font-bold">${escapeHtml(item.company)}</h3>
-            <p class="label-caps text-on-surface-variant mt-2">${escapeHtml(item.title)}</p>
-            <p class="text-on-surface-variant italic mt-4">${escapeHtml(item.period)}</p>
-          </div>
-          <div class="md:col-span-8 border-l border-outline-variant/30 pl-12">
-            <ul class="space-y-6 text-on-surface-variant leading-relaxed list-disc marker:text-primary">
-              ${item.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}
-            </ul>
-          </div>
+        <div class="p-8 bg-surface-container-lowest rounded-lg border border-outline-variant/10">
+          <p class="text-on-surface-variant leading-relaxed">${escapeHtml(item)}</p>
         </div>`,
     )
     .join("");
 }
 
-function renderDesktopExpertise() {
+function renderFocusChips() {
+  return summaryGroups[1].items
+    .map(
+      (item) => `
+        <span class="inline-flex items-center px-3 py-2 rounded-full bg-primary/10 text-primary text-[11px] font-bold uppercase tracking-[0.16em]">
+          ${escapeHtml(item)}
+        </span>`,
+    )
+    .join("");
+}
+
+function renderExperienceEntries() {
+  return experienceItems
+    .map(
+      (item, index) => `
+        <div class="relative pl-12 border-l border-outline-variant/30">
+          <div class="absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full ${index === 0 ? "bg-primary" : "bg-primary/30"}"></div>
+          <div class="flex flex-col md:flex-row md:justify-between mb-6 gap-3">
+            <div>
+              <h4 class="text-2xl font-serif text-primary">${escapeHtml(item.company)}</h4>
+              <p class="text-lg text-secondary">${escapeHtml(item.title)}</p>
+            </div>
+            <p class="text-sm font-label text-on-surface-variant mt-2 md:mt-0">${escapeHtml(item.period)}</p>
+          </div>
+          <ul class="space-y-4 text-on-surface-variant leading-relaxed list-disc ml-4">
+            ${item.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}
+          </ul>
+        </div>`,
+    )
+    .join("");
+}
+
+function renderExpertiseGroups() {
   return expertiseGroups
     .map(
       (group) => `
         <div>
-          <h4 class="label-caps border-b border-primary pb-4 mb-6 text-primary">${escapeHtml(group.title)}</h4>
-          <ul class="space-y-3 text-on-surface">
-            ${group.items.map((item) => `<li class="font-medium">${escapeHtml(item)}</li>`).join("")}
+          <div class="flex items-center mb-6">
+            <span class="material-symbols-outlined text-primary mr-3">overview</span>
+            <h4 class="font-serif text-xl">${escapeHtml(group.title)}</h4>
+          </div>
+          <ul class="space-y-3">
+            ${group.items
+              .map(
+                (item) => `
+                  <li class="text-on-surface-variant flex items-start bg-surface-container-lowest p-3 rounded-md leading-relaxed">
+                    ${escapeHtml(item)}
+                  </li>`,
+              )
+              .join("")}
           </ul>
         </div>`,
     )
     .join("");
 }
 
-function renderDesktopProjects() {
+function renderProjectCards() {
   return projects
     .map(
       (project) => `
-        <div class="bg-surface-container-high p-12 flex flex-col justify-between">
+        <div class="p-10 bg-surface-container-low rounded-lg flex flex-col gap-8">
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="px-2 py-1 bg-primary text-[10px] uppercase tracking-wider text-on-primary font-bold">${escapeHtml(project.period)}</span>
+            <span class="px-2 py-1 bg-tertiary-fixed/60 text-[10px] uppercase tracking-wider text-on-tertiary-fixed font-bold">${escapeHtml(project.metric)}</span>
+          </div>
           <div>
-            <span class="label-caps text-primary block mb-4">${escapeHtml(project.period)}</span>
-            <h3 class="headline-display text-3xl mb-6">${escapeHtml(project.title)}</h3>
-            <ul class="space-y-4 text-on-surface-variant leading-relaxed text-lg">
+            <h4 class="text-3xl font-serif text-primary mb-6">${escapeHtml(project.title)}</h4>
+            <ul class="space-y-4 text-on-surface-variant leading-relaxed list-disc ml-4">
               ${project.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}
             </ul>
           </div>
-          <div class="bg-surface-bright/50 p-6 border-l border-primary mt-10">
-            <span class="label-caps text-primary block mb-2">Verified metric</span>
-            <div class="headline-display text-4xl font-bold">${escapeHtml(project.metric)}</div>
-            <p class="text-sm text-on-surface-variant mt-2">${escapeHtml(project.metricLabel)}</p>
-          </div>
+          <p class="text-[11px] uppercase tracking-[0.18em] text-secondary font-bold">${escapeHtml(project.metricLabel)}</p>
         </div>`,
     )
     .join("");
 }
 
-function renderDesktopEducation() {
+function renderEducationEntries() {
   return education
     .map(
       (item, index) => `
-        <div class="flex flex-col md:flex-row justify-between items-start gap-6 ${index === 0 ? "" : "pt-8 border-t border-outline-variant/10"}">
+        <div class="flex gap-6 ${index === 0 ? "" : "pt-6 border-t border-white/10"}">
+          <div class="flex-shrink-0 h-16 w-16 bg-white/10 rounded-full flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary-fixed text-2xl">${index === 0 ? "school" : "architecture"}</span>
+          </div>
           <div>
-            <h3 class="headline-display text-3xl">${escapeHtml(item.degree)}</h3>
-            <p class="text-on-surface-variant mt-2 italic">${escapeHtml(item.detail)}</p>
-            <p class="label-caps text-on-surface-variant mt-4">${escapeHtml(item.school)}</p>
-          </div>
-          <div class="text-left md:text-right">
-            <p class="font-bold">${escapeHtml(item.gpa)}</p>
-            <p class="label-caps text-on-surface-variant mt-2">${escapeHtml(item.period)}</p>
+            <h4 class="text-2xl font-serif text-primary-fixed">${escapeHtml(item.degree)}</h4>
+            <p class="text-lg opacity-80 italic">${escapeHtml(item.detail)}</p>
+            <p class="text-sm font-label mt-2 tracking-wide uppercase">${escapeHtml(item.school)}</p>
+            <p class="text-sm opacity-80 mt-3">${escapeHtml(item.period)}</p>
+            <p class="text-sm opacity-80">${escapeHtml(item.gpa)}</p>
           </div>
         </div>`,
     )
     .join("");
 }
 
-function renderMobileSummarySignals() {
-  return summaryGroups[0].items
-    .map(
-      (signal, index) => `
-        <li class="flex gap-4">
-          <span class="text-primary font-headline italic text-xl">${String(index + 1).padStart(2, "0")}</span>
-          <p class="font-body text-on-surface-variant leading-relaxed">${escapeHtml(signal)}</p>
-        </li>`,
-    )
-    .join("");
-}
+export function buildStitchResumeHtml(sourceHtml: string) {
+  const doc = new DOMParser().parseFromString(sourceHtml, "text/html");
 
-function renderMobileCoreFocus() {
-  return summaryGroups[1].items
-    .map(
-      (item) => `<span class="text-xs bg-surface-container-highest px-2 py-1">${escapeHtml(item)}</span>`,
-    )
-    .join("");
-}
+  doc.title = "Dhruv Mehta | Resume Microsite";
 
-function renderMobileExperience() {
-  return experienceItems
-    .map(
-      (item) => `
-        <div class="relative">
-          <div class="mb-4">
-            <span class="font-label text-xs text-on-surface-variant uppercase tracking-widest block mb-2">${escapeHtml(item.period)}</span>
-            <h3 class="font-headline text-3xl text-on-surface mb-1">${escapeHtml(item.company)}</h3>
-            <p class="font-body text-primary text-sm font-medium">${escapeHtml(item.title)}</p>
-          </div>
-          <div class="mt-8 max-w-2xl">
-            <ul class="space-y-4 font-body text-on-surface-variant text-sm list-none border-l border-outline-variant/20 pl-6">
-              ${item.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}
-            </ul>
-          </div>
+  const navigation = doc.querySelector("nav");
+  if (navigation) {
+    setText(navigation.querySelector("div.text-2xl"), "Dhruv Mehta");
+    setInnerHtml(
+      navigation.querySelector(".hidden.md\\:flex"),
+      `
+        <a class="text-slate-500 font-medium hover:text-slate-900 transition-colors" href="#summary">Summary</a>
+        <a class="text-slate-500 font-medium hover:text-slate-900 transition-colors" href="#experience">Experience</a>
+        <a class="text-slate-500 font-medium hover:text-slate-900 transition-colors" href="#projects">Projects</a>
+        <a class="text-slate-500 font-medium hover:text-slate-900 transition-colors" href="#toolkit">Toolkit</a>
+        <a class="bg-primary text-on-primary px-6 py-2 rounded-md hover:opacity-90 transition-all" href="#contact">Contact</a>`,
+    );
+
+    const mobileButton = navigation.querySelector("button.md\\:hidden");
+    if (mobileButton) {
+      mobileButton.outerHTML = `<a class="md:hidden text-primary text-xs font-bold uppercase tracking-[0.18em]" href="#contact">Contact</a>`;
+    }
+  }
+
+  const hero = doc.querySelector("header");
+  if (hero) {
+    setText(
+      hero.querySelector("span.inline-block"),
+      roleFraming.replaceAll(" / ", " • "),
+    );
+    setText(hero.querySelector("h1"), "Dhruv Mehta");
+    setText(hero.querySelector("p"), resumeIntro);
+    setInnerHtml(
+      hero.querySelector("div.flex.flex-wrap.gap-4"),
+      `
+        <a class="inline-flex items-center px-8 py-4 bg-primary text-on-primary rounded-md font-medium group transition-all" href="${resumeHref()}">
+          View CV
+          <span class="material-symbols-outlined ml-2 text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </a>
+        <a class="inline-flex items-center px-8 py-4 border border-outline-variant/30 text-primary rounded-md font-medium hover:bg-surface-container transition-all" href="${contact.linkedin}" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+        <a class="inline-flex items-center px-8 py-4 text-primary font-medium hover:underline" href="mailto:${contact.email}">
+          Email
+        </a>
+        <a class="inline-flex items-center px-8 py-4 text-primary font-medium hover:underline" href="${phoneHref(contact.phone)}">
+          ${escapeHtml(contact.phone)}
+        </a>`,
+    );
+  }
+
+  const summarySection = doc.getElementById("summary");
+  if (summarySection) {
+    setText(summarySection.querySelector("h2"), "Strategic Profile");
+    setText(summarySection.querySelector("h3"), "Professional Summary");
+
+    const headingBlock = summarySection.querySelector(".mb-20");
+    if (headingBlock) {
+      const chipRow = doc.createElement("div");
+      chipRow.className = "mt-8 flex flex-wrap gap-3";
+      chipRow.innerHTML = renderFocusChips();
+      headingBlock.appendChild(chipRow);
+    }
+
+    setInnerHtml(summarySection.querySelector(".grid"), renderSummaryCards());
+  }
+
+  const experienceSection = doc.getElementById("experience");
+  if (experienceSection) {
+    setText(experienceSection.querySelector("h2"), "Professional Experience");
+    setText(experienceSection.querySelector("h3"), "Experience");
+    setInnerHtml(
+      experienceSection.querySelector(".lg\\:col-span-8"),
+      renderExperienceEntries(),
+    );
+  }
+
+  const toolkitSection = doc.getElementById("toolkit");
+  if (toolkitSection) {
+    setText(toolkitSection.querySelector("h2"), "Expertise & Technical Toolkit");
+    setText(toolkitSection.querySelector("h3"), "Capabilities");
+    setInnerHtml(toolkitSection.querySelector(".grid"), renderExpertiseGroups());
+  }
+
+  const projectSection = doc.getElementById("projects");
+  if (projectSection) {
+    setText(projectSection.querySelector("h2"), "Selected Projects");
+    setText(projectSection.querySelector("h3"), "Academic & Technical Work");
+    setInnerHtml(projectSection.querySelector(".grid"), renderProjectCards());
+  }
+
+  const sections = Array.from(doc.querySelectorAll("section"));
+  const educationSection = sections.find((section) =>
+    section.textContent?.includes("Academic Foundation"),
+  );
+
+  if (educationSection) {
+    educationSection.id = "education";
+    setText(educationSection.querySelector("h2"), "Education");
+    setText(educationSection.querySelector("h3"), "Academic Foundation");
+    setInnerHtml(
+      educationSection.querySelector(".space-y-12"),
+      renderEducationEntries(),
+    );
+
+    setInnerHtml(
+      educationSection.querySelector(".hidden.lg\\:block"),
+      `
+        <span class="material-symbols-outlined text-7xl text-primary-fixed mb-6">contacts</span>
+        <p class="font-serif italic text-3xl mb-4">Professional Contact</p>
+        <div class="space-y-3 text-sm">
+          <a class="block underline underline-offset-4" href="mailto:${contact.email}">${escapeHtml(contact.email)}</a>
+          <a class="block underline underline-offset-4" href="${phoneHref(contact.phone)}">${escapeHtml(contact.phone)}</a>
+          <a class="block underline underline-offset-4" href="${contact.linkedin}" target="_blank" rel="noreferrer">${escapeHtml(contact.linkedin)}</a>
         </div>`,
-    )
-    .join("");
-}
+    );
+  }
 
-function renderMobileExpertise() {
-  return expertiseGroups
-    .map(
-      (group) => `
-        <div class="bg-surface-container-lowest p-8 border-b-4 border-primary">
-          <h3 class="font-headline text-xl mb-4 italic">${escapeHtml(group.title)}</h3>
-          <ul class="space-y-3 font-body text-sm text-on-surface-variant leading-relaxed">
-            ${group.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-          </ul>
-        </div>`,
-    )
-    .join("");
-}
+  const contactSection = doc.getElementById("contact");
+  if (contactSection) {
+    setText(contactSection.querySelector("h2"), "Contact");
+    setText(contactSection.querySelector("h3"), "Let's Connect");
+    setInnerHtml(
+      contactSection.querySelector(".grid"),
+      `
+        <a class="p-8 bg-surface-container-low rounded-lg hover:bg-surface-container transition-all" href="mailto:${contact.email}">
+          <span class="material-symbols-outlined mb-2 text-primary">alternate_email</span>
+          <p class="font-medium text-primary">Email</p>
+          <p class="text-sm text-secondary">${escapeHtml(contact.email)}</p>
+        </a>
+        <a class="p-8 bg-surface-container-low rounded-lg hover:bg-surface-container transition-all" href="${contact.linkedin}" target="_blank" rel="noreferrer">
+          <span class="material-symbols-outlined mb-2 text-primary">link</span>
+          <p class="font-medium text-primary">LinkedIn</p>
+          <p class="text-sm text-secondary">linkedin.com/in/dhruv-mehta2205</p>
+        </a>
+        <a class="p-8 bg-surface-container-low rounded-lg hover:bg-surface-container transition-all" href="${phoneHref(contact.phone)}">
+          <span class="material-symbols-outlined mb-2 text-primary">call</span>
+          <p class="font-medium text-primary">Phone</p>
+          <p class="text-sm text-secondary">${escapeHtml(contact.phone)}</p>
+        </a>
+        <a class="p-8 bg-surface-container-low rounded-lg hover:bg-surface-container transition-all" href="${resumeHref()}">
+          <span class="material-symbols-outlined mb-2 text-primary">description</span>
+          <p class="font-medium text-primary">Curriculum Vitae</p>
+          <p class="text-sm text-secondary">Download PDF resume</p>
+        </a>`,
+    );
+  }
 
-function renderMobileProjects() {
-  return projects
-    .map(
-      (project) => `
-        <div class="bg-surface-container-lowest p-10 flex flex-col justify-between">
-          <div>
-            <span class="font-label text-[10px] text-primary uppercase tracking-widest mb-4 block">${escapeHtml(project.period)}</span>
-            <h3 class="font-headline text-2xl mb-6">${escapeHtml(project.title)}</h3>
-            <ul class="space-y-4 font-body text-sm text-on-surface-variant leading-relaxed">
-              ${project.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}
-            </ul>
-          </div>
-          <div class="pt-8 border-t border-outline-variant/20 flex items-baseline gap-2 mt-8">
-            <span class="font-headline text-4xl text-primary">${escapeHtml(project.metric)}</span>
-            <span class="font-label text-xs uppercase text-on-surface-variant">${escapeHtml(project.metricLabel)}</span>
-          </div>
-        </div>`,
-    )
-    .join("");
-}
+  const footer = doc.querySelector("footer");
+  if (footer) {
+    setText(footer.querySelector(".font-serif"), "Dhruv Mehta");
+    setInnerHtml(
+      footer.querySelector(".flex.space-x-8"),
+      `
+        <a class="text-primary-fixed hover:text-white transition-opacity font-label text-sm uppercase tracking-wide" href="${contact.linkedin}" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="text-primary-fixed hover:text-white transition-opacity font-label text-sm uppercase tracking-wide" href="mailto:${contact.email}">Email</a>
+        <a class="text-primary-fixed hover:text-white transition-opacity font-label text-sm uppercase tracking-wide" href="${phoneHref(contact.phone)}">Phone</a>`,
+    );
 
-export function buildDesktopHtml(sourceHtml: string) {
-  const head = extractHead(sourceHtml);
+    const footerCopy = footer.querySelector(".border-t");
+    setInnerHtml(
+      footerCopy,
+      `
+        <p>© Dhruv Mehta</p>
+        <p class="mt-4 md:mt-0">${escapeHtml(roleFraming)}</p>`,
+    );
+    footerCopy?.classList.add(
+      "pt-8",
+      "flex",
+      "flex-col",
+      "md:flex-row",
+      "justify-between",
+      "items-center",
+      "text-xs",
+      "uppercase",
+      "tracking-[0.2em]",
+      "opacity-60",
+    );
+  }
 
-  return `<!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
-  <head>
-    ${head}
-  </head>
-  <body class="selection:bg-primary-container selection:text-on-primary-container">
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#fffcf7] shadow-[0_12px_40px_rgba(56,56,49,0.05)] transition-all duration-300">
-      <nav class="flex justify-between items-center w-full px-6 md:px-20 py-8 max-w-[1440px] mx-auto">
-        <div class="text-2xl font-serif italic text-[#383831] tracking-tight">Dhruv Mehta</div>
-        <div class="hidden md:flex items-center gap-10">
-          <a class="text-[#65655c] text-[13px] uppercase tracking-[0.05em] hover:text-[#383831] transition-colors duration-300" href="#experience">Experience</a>
-          <a class="text-[#65655c] text-[13px] uppercase tracking-[0.05em] hover:text-[#383831] transition-colors duration-300" href="#expertise">Expertise</a>
-          <a class="text-[#65655c] text-[13px] uppercase tracking-[0.05em] hover:text-[#383831] transition-colors duration-300" href="#projects">Projects</a>
-          <a class="text-[#65655c] text-[13px] uppercase tracking-[0.05em] hover:text-[#383831] transition-colors duration-300" href="#education">Education</a>
-          <a class="text-[#65655c] text-[13px] uppercase tracking-[0.05em] hover:text-[#383831] transition-colors duration-300" href="#contact">Contact</a>
-        </div>
-        <a class="bg-primary text-on-primary px-8 py-3 text-[13px] uppercase tracking-[0.05em] hover:opacity-90 transition-opacity" href="${contact.resumeHref}">View CV</a>
-      </nav>
-    </header>
-    <main class="pt-32">
-      <section class="max-w-[1440px] mx-auto px-6 md:px-20 py-24 border-b border-outline-variant/15">
-        <div class="grid md:grid-cols-12 gap-12 items-start">
-          <div class="md:col-span-8">
-            <span class="label-caps text-on-surface-variant block mb-6">Resume microsite</span>
-            <h1 class="headline-display text-7xl md:text-8xl font-light leading-[1.1] mb-12 tracking-tight">Dhruv Mehta</h1>
-            <p class="headline-display text-3xl italic text-on-surface-variant leading-relaxed max-w-4xl">${escapeHtml(roleFraming)}</p>
-          </div>
-          <div class="md:col-span-4 pt-4 space-y-6">
-            <div class="bg-surface-container-low p-8 border-l-4 border-primary">
-              <p class="text-on-surface leading-relaxed text-lg">${escapeHtml(resumeIntro)}</p>
-            </div>
-            <div class="space-y-4">
-              <a class="block bg-primary text-on-primary px-6 py-4 text-center text-sm uppercase tracking-[0.08em] hover:opacity-90 transition-opacity" href="${contact.resumeHref}">View CV</a>
-              <a class="block border border-outline-variant/30 px-6 py-4 text-center text-sm uppercase tracking-[0.08em] hover:bg-surface-container-low transition-colors" href="${contact.linkedin}">LinkedIn</a>
-              <a class="block border border-outline-variant/30 px-6 py-4 text-center text-sm uppercase tracking-[0.08em] hover:bg-surface-container-low transition-colors" href="mailto:${contact.email}">Email</a>
-              <a class="block border border-outline-variant/30 px-6 py-4 text-center text-sm uppercase tracking-[0.08em] hover:bg-surface-container-low transition-colors" href="tel:+971507031775">${escapeHtml(contact.phone)}</a>
-            </div>
-          </div>
-        </div>
-      </section>
+  doc.querySelectorAll<HTMLAnchorElement>('a[href="https://linkedin.com"]').forEach(
+    (anchor) => {
+      anchor.href = contact.linkedin;
+      openInNewTab(anchor);
+    },
+  );
 
-      <section class="max-w-[1440px] mx-auto px-6 md:px-20 py-32 bg-surface-container-low">
-        <div class="grid md:grid-cols-12 gap-16">
-          <div class="md:col-span-4">
-            <h2 class="headline-display text-4xl mb-8">Professional Summary</h2>
-            <div class="space-y-4">
-              <div class="label-caps text-primary border-b border-primary/20 pb-2 inline-block">Core focus</div>
-              <ul class="space-y-3 font-medium">
-                ${summaryGroups[1].items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-              </ul>
-            </div>
-          </div>
-          <div class="md:col-span-8">
-            <ul class="space-y-8 text-xl leading-relaxed text-on-surface-variant">
-              ${renderDesktopSummarySignals()}
-            </ul>
-          </div>
-        </div>
-      </section>
+  doc.querySelectorAll<HTMLAnchorElement>('a[href="#"]').forEach((anchor) => {
+    const label = anchor.textContent?.trim().toLowerCase() ?? "";
+    if (label.includes("linkedin")) {
+      anchor.href = contact.linkedin;
+      openInNewTab(anchor);
+    } else if (label.includes("phone")) {
+      anchor.href = phoneHref(contact.phone);
+    } else if (label.includes("curriculum") || label.includes("view cv")) {
+      anchor.href = resumeHref();
+    }
+  });
 
-      <section class="max-w-[1440px] mx-auto px-6 md:px-20 py-32" id="experience">
-        <span class="label-caps text-on-surface-variant block mb-12">Professional Experience</span>
-        <div class="space-y-24">
-          ${renderDesktopExperience()}
-        </div>
-      </section>
-
-      <section class="bg-surface-container py-32" id="expertise">
-        <div class="max-w-[1440px] mx-auto px-6 md:px-20">
-          <span class="label-caps text-on-surface-variant block mb-12">Expertise &amp; Technical Toolkit</span>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
-            ${renderDesktopExpertise()}
-          </div>
-        </div>
-      </section>
-
-      <section class="max-w-[1440px] mx-auto px-6 md:px-20 py-32" id="projects">
-        <span class="label-caps text-on-surface-variant block mb-12">Selected Projects</span>
-        <div class="grid md:grid-cols-2 gap-12">
-          ${renderDesktopProjects()}
-        </div>
-      </section>
-
-      <section class="bg-[#fcf9f3] py-32 border-t border-outline-variant/15" id="education">
-        <div class="max-w-[1440px] mx-auto px-6 md:px-20">
-          <div class="grid md:grid-cols-12 gap-16 items-start">
-            <div class="md:col-span-7">
-              <span class="label-caps text-on-surface-variant block mb-12">Academic Background</span>
-              <div class="space-y-8">
-                ${renderDesktopEducation()}
-              </div>
-            </div>
-            <div class="md:col-span-5" id="contact">
-              <span class="label-caps text-on-surface-variant block mb-12">Contact</span>
-              <div class="space-y-6 bg-surface-container-lowest p-10 border border-outline-variant/10">
-                <p class="headline-display text-4xl">Let's Connect</p>
-                <p class="text-on-surface-variant leading-relaxed">Available for professional conversations around business continuity, information security, business analysis, and analytical roles with technical depth.</p>
-                <a class="block text-lg underline underline-offset-8 decoration-outline-variant hover:decoration-primary transition-colors" href="mailto:${contact.email}">${escapeHtml(contact.email)}</a>
-                <a class="block text-lg underline underline-offset-8 decoration-outline-variant hover:decoration-primary transition-colors" href="tel:+971507031775">${escapeHtml(contact.phone)}</a>
-                <a class="block text-lg underline underline-offset-8 decoration-outline-variant hover:decoration-primary transition-colors" href="${contact.linkedin}">${escapeHtml(contact.linkedin)}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="bg-[#fcf9f3] w-full px-6 md:px-20 py-12 border-t border-[#babab0]/15">
-      <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="text-lg font-serif text-[#383831]">Dhruv Mehta</div>
-        <div class="text-[12px] tracking-wide text-[#5d5e61]">${escapeHtml(roleFraming)}</div>
-        <div class="flex gap-8">
-          <a class="text-[#65655c] hover:text-[#383831] hover:underline transition-all" href="${contact.linkedin}">LinkedIn</a>
-          <a class="text-[#65655c] hover:text-[#383831] hover:underline transition-all" href="mailto:${contact.email}">Email</a>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>`;
-}
-
-export function buildMobileHtml(sourceHtml: string) {
-  const head = extractHead(sourceHtml);
-
-  return `<!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
-  <head>
-    ${head}
-  </head>
-  <body class="font-body selection:bg-primary-container selection:text-on-primary-container">
-    <header class="fixed top-0 w-full flex justify-between items-center px-6 py-4 z-50 bg-[#f9f9f9]/80 backdrop-blur-md shadow-[0px_10px_30px_rgba(45,52,53,0.04)]">
-      <span class="font-['Newsreader'] text-xl font-medium tracking-tight text-[#2d3435]">Dhruv Mehta</span>
-      <a class="text-[#5a6061] font-['Inter'] text-sm tracking-wide hover:text-[#2d3435] transition-colors duration-200" href="${contact.resumeHref}">View CV</a>
-    </header>
-    <main class="pt-24 pb-12">
-      <section class="px-6 mb-20">
-        <div class="editorial-grid">
-          <div class="editorial-content">
-            <h1 class="font-headline text-5xl md:text-7xl mb-6 leading-tight font-light italic">Dhruv Mehta</h1>
-            <div class="flex flex-wrap gap-2 mb-8">
-              ${renderMobileCoreFocus()}
-            </div>
-            <p class="font-headline text-2xl md:text-3xl text-on-surface-variant leading-relaxed mb-6 max-w-2xl">${escapeHtml(resumeIntro)}</p>
-            <div class="flex flex-col gap-4">
-              <a class="bg-primary text-on-primary px-8 py-4 text-center font-label text-sm uppercase tracking-widest hover:bg-primary-dim transition-all active:scale-95" href="${contact.resumeHref}">View CV</a>
-              <div class="grid grid-cols-2 gap-4">
-                <a class="border border-outline-variant/30 px-6 py-4 text-center font-label text-sm uppercase tracking-widest hover:bg-surface-container-lowest transition-all" href="${contact.linkedin}">LinkedIn</a>
-                <a class="border border-outline-variant/30 px-6 py-4 text-center font-label text-sm uppercase tracking-widest hover:bg-surface-container-lowest transition-all" href="mailto:${contact.email}">Email</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-surface-container-low py-20 px-6">
-        <div class="editorial-grid">
-          <div class="editorial-content">
-            <h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-12 border-l-2 border-primary pl-4">Professional Summary &amp; Core Focus</h2>
-            <div class="space-y-12">
-              <div class="bg-surface-container-lowest p-8 shadow-sm">
-                <ul class="space-y-6">
-                  ${renderMobileSummarySignals()}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-24 px-6 bg-surface-bright" id="experience">
-        <div class="editorial-grid">
-          <div class="editorial-content">
-            <h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-16 border-l-2 border-primary pl-4">Professional History</h2>
-            <div class="space-y-24">
-              ${renderMobileExperience()}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-surface-container-low py-24 px-6" id="expertise">
-        <div class="editorial-grid">
-          <div class="editorial-content">
-            <h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-16 border-l-2 border-primary pl-4">Expertise &amp; Toolkit</h2>
-            <div class="space-y-8">
-              ${renderMobileExpertise()}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-24 px-6 bg-surface-bright" id="projects">
-        <div class="editorial-grid">
-          <div class="editorial-content">
-            <h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-16 border-l-2 border-primary pl-4">Selected Projects</h2>
-            <div class="grid grid-cols-1 gap-6">
-              ${renderMobileProjects()}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-24 px-6 bg-surface-container-low" id="education">
-        <div class="editorial-grid">
-          <div class="editorial-content">
-            <h2 class="font-headline text-sm uppercase tracking-[0.2em] text-primary mb-12 border-l-2 border-primary pl-4">Education &amp; Contact</h2>
-            <div class="space-y-8">
-              ${education
-                .map(
-                  (item) => `
-                    <div class="bg-surface-container-lowest p-8 border border-outline-variant/10">
-                      <h3 class="font-headline text-2xl mb-2">${escapeHtml(item.degree)}</h3>
-                      <p class="font-body text-primary text-sm font-medium mb-4">${escapeHtml(item.detail)}</p>
-                      <div class="space-y-2 font-body text-sm text-on-surface-variant">
-                        <p>${escapeHtml(item.school)}</p>
-                        <p>${escapeHtml(item.period)}</p>
-                        <p>${escapeHtml(item.gpa)}</p>
-                      </div>
-                    </div>`,
-                )
-                .join("")}
-              <div class="bg-surface-container-lowest p-8 border border-outline-variant/10" id="contact">
-                <h3 class="font-headline text-3xl mb-6">Let's Connect</h3>
-                <p class="font-body text-on-surface-variant mb-8">Available for professional conversations around business continuity, information security, business analysis, and analytical work with technical depth.</p>
-                <div class="space-y-4">
-                  <a class="block font-body underline underline-offset-8 decoration-outline-variant hover:decoration-primary transition-colors" href="mailto:${contact.email}">${escapeHtml(contact.email)}</a>
-                  <a class="block font-body underline underline-offset-8 decoration-outline-variant hover:decoration-primary transition-colors" href="tel:+971507031775">${escapeHtml(contact.phone)}</a>
-                  <a class="block font-body underline underline-offset-8 decoration-outline-variant hover:decoration-primary transition-colors" href="${contact.linkedin}">${escapeHtml(contact.linkedin)}</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="w-full py-12 px-6 flex flex-col items-center gap-4 bg-[#f9f9f9] border-t border-[#adb3b4]/15">
-      <p class="font-['Inter'] text-xs uppercase tracking-[0.05em] text-[#5a6061]">Dhruv Mehta</p>
-      <div class="flex gap-8">
-        <a class="font-['Inter'] text-xs uppercase tracking-[0.05em] text-[#5a6061] hover:text-[#2d3435] underline decoration-1 underline-offset-4 transition-all duration-300" href="${contact.linkedin}">LinkedIn</a>
-        <a class="font-['Inter'] text-xs uppercase tracking-[0.05em] text-[#5a6061] hover:text-[#2d3435] underline decoration-1 underline-offset-4 transition-all duration-300" href="mailto:${contact.email}">Email</a>
-      </div>
-    </footer>
-  </body>
-</html>`;
+  return `<!DOCTYPE html>\n${doc.documentElement.outerHTML}`;
 }

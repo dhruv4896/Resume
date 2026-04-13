@@ -12,6 +12,8 @@ dist
 dist-ssr
 output
 *.local
+.stitch-cache/
+.qa/
 
 # Editor directories and files
 .vscode/*

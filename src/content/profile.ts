@@ -192,9 +192,3 @@ export const contact: ContactDetails = {
   phone: "+971 50 7031775",
   resumeHref: "cv/dhruv-mehta-cv.pdf",
 };
-
-export const stitchSource = {
-  desktopScreenId: "151e8a2e6a6149fd9c7b6158baf59614",
-  mobileScreenId: "e6087f3fb91447f4a860a4526afb04fa",
-  projectId: "17091861260108282947",
-} as const;
