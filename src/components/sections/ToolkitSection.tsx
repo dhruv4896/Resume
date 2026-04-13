@@ -16,7 +16,7 @@ export function ToolkitSection() {
             <p className="section-plate">04 // Expertise &amp; Toolkit</p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="space-y-6">
             {expertiseGroups.map((group, index) => (
               <article
                 key={group.title}

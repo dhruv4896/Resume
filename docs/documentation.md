@@ -1,7 +1,7 @@
 # Documentation.md
 
 ## Current status
-- milestone: TE utility-hardware revamp implemented as a native React rebuild
+- milestone: TE utility-hardware revamp refined with stronger background motion and a true experience timeline
 - branch: main
 - local preview status: verified locally in dark, light, and mobile
 - build status: passing locally after the engineering-grid and ticker pass
@@ -14,7 +14,9 @@
 - Light mode is now a white utility chassis rather than the prior bone/cream variant.
 - `SectionId` now includes `top`, and the selector bug is fixed so the page starts on `01 // Overview` while the hero is in view.
 - Decorative telemetry labels and fake panel naming are removed from the hero and project areas.
-- The hero now uses one factual console built from real focus areas and project outcomes, supported by an engineering grid, utility rails, and a ticker built from real resume vocabulary.
+- The hero now uses one factual console built from real focus areas and project outcomes, supported by a stronger animated engineering grid, utility rails, sweep lines, and a ticker built from real resume vocabulary.
+- Experience now renders as a vertical timeline instead of a two-column bullet grid.
+- Professional Summary, Core Focus, and Expertise/Toolkit are now stacked one-below-the-other instead of grid-based point layouts.
 - A simpler single-button theme toggle replaces the previous heavier control.
 - Resume data remains centralized in `src/content/profile.ts`.
 - Public links are corrected to the verified Dhruv Mehta email, LinkedIn, phone, and CV PDF.
@@ -33,7 +35,7 @@
 - The native React build preserves the full content packet while replacing the prior glow-heavy pass with a flatter TE utility-hardware chassis.
 - This pass removes fake labels such as `Model Adapter Grid`, `Forecast Signal`, `Signal Flow`, and `Activity`.
 - The project cards do not ship decorative chart widgets; the right-side emphasis stays tied to real measured outcomes.
-- The page now ships a full-page engineering grid, local module grid overlays, a hero ticker, and a secondary ticker band using real resume terms only.
+- The page now ships a full-page engineering grid, drifting background rail bands, local module grid overlays, a hero ticker, and a secondary ticker band using real resume terms only.
 - Verified locally:
   - dark mode is the first-load default
   - light mode persists from local storage
@@ -41,6 +43,7 @@
   - CV asset resolves under `/Resume/cv/dhruv-mehta-cv.pdf`
   - LinkedIn, email, and phone hrefs are correct
   - desktop and mobile screenshots reflect the TE utility-hardware system in both themes
+  - experience timeline markup and stacked summary/focus/expertise layouts are present in the verified dark DOM
 
 ## Known follow-ups
 - Keep future changes aligned to the orange + teal utility-hardware direction instead of drifting back toward green, cream, glow-heavy gradients, or decorative dashboard motifs.

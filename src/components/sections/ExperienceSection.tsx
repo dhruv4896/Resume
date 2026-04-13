@@ -11,18 +11,27 @@ export function ExperienceSection() {
             <p className="section-plate">03 // Professional Experience</p>
           </div>
 
-          <div className="space-y-6">
+          <div className="experience-timeline">
             {experienceItems.map((item, index) => (
-              <article
+              <div
                 key={`${item.company}-${item.period}`}
-                className={`hardware-panel ${toneClasses[index % toneClasses.length]} p-6 sm:p-8`}
+                className="experience-timeline__entry"
               >
-                <div className="module-header">
-                  <span className="status-led" data-active />
-                  <p className="module-header__label">{item.period}</p>
+                <div className="experience-timeline__marker">
+                  <span className="experience-timeline__dot">
+                    <span className="status-led" data-active />
+                  </span>
+                  <p className="experience-timeline__period">{item.period}</p>
                 </div>
 
-                <div className="mt-6 grid gap-8 xl:grid-cols-[minmax(0,18rem)_1fr] xl:gap-12">
+                <article
+                  className={`hardware-panel experience-timeline__card ${toneClasses[index % toneClasses.length]} p-6 sm:p-8`}
+                >
+                  <div className="module-header">
+                    <span className="status-led" data-active />
+                    <p className="module-header__label">Role</p>
+                  </div>
+
                   <div className="experience-meta">
                     <h3 className="font-display text-3xl font-bold uppercase tracking-[-0.05em] text-[color:var(--heading)] sm:text-[2.4rem]">
                       {item.company}
@@ -30,7 +39,7 @@ export function ExperienceSection() {
                     <p className="experience-meta__title">{item.title}</p>
                   </div>
 
-                  <ul className="experience-grid">
+                  <ul className="experience-timeline__list">
                     {item.bullets.map((bullet) => (
                       <li key={bullet} className="hardware-row experience-bullet">
                         <span className="status-led experience-bullet__led" />
@@ -38,8 +47,8 @@ export function ExperienceSection() {
                       </li>
                     ))}
                   </ul>
-                </div>
-              </article>
+                </article>
+              </div>
             ))}
           </div>
         </div>

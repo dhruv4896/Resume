@@ -24,6 +24,17 @@ export function HomePage() {
 
   return (
     <div className="page-shell min-h-screen bg-[color:var(--page-bg)] text-[color:var(--text-primary)] transition-colors duration-300 motion-reduce:transition-none">
+      <div className="page-shell__background" aria-hidden="true">
+        <div className="page-shell__grid-layer page-shell__grid-layer--base technical-grid" />
+        <div className="page-shell__grid-layer page-shell__grid-layer--drift technical-grid" />
+        <div className="page-shell__rail-band page-shell__rail-band--top" />
+        <div className="page-shell__rail-band page-shell__rail-band--mid" />
+        <div className="page-shell__rail-band page-shell__rail-band--bottom" />
+        <div className="page-shell__pulse page-shell__pulse--orange" />
+        <div className="page-shell__pulse page-shell__pulse--teal" />
+        <div className="page-shell__pulse page-shell__pulse--yellow" />
+      </div>
+
       <a
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[color:var(--primary-action-bg)] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[color:var(--primary-action-text)]"
         href="#summary"

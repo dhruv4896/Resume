@@ -52,10 +52,14 @@ export function HeroSection() {
     >
       <div className="hero-shell__backdrop" aria-hidden="true">
         <div className="hero-shell__grid technical-grid" />
+        <div className="hero-shell__panel hero-shell__panel--upper" />
+        <div className="hero-shell__panel hero-shell__panel--lower" />
         <div className="hero-shell__glow hero-shell__glow--orange" />
         <div className="hero-shell__glow hero-shell__glow--teal" />
         <div className="hero-shell__rail hero-shell__rail--horizontal" />
         <div className="hero-shell__rail hero-shell__rail--vertical" />
+        <div className="hero-shell__sweep hero-shell__sweep--vertical" />
+        <div className="hero-shell__sweep hero-shell__sweep--horizontal" />
       </div>
 
       <div className="mx-auto flex min-h-[clamp(42rem,78svh,52rem)] max-w-7xl items-center px-6 py-12 sm:px-8 sm:py-16 lg:px-10">

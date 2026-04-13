@@ -18,7 +18,7 @@ export function SummarySection() {
                 <p className="module-header__label">Professional Summary</p>
               </div>
 
-              <div className="summary-grid mt-6">
+              <div className="summary-stack mt-6">
                 {professionalSummary.items.map((item, index) => (
                   <article
                     key={item}
@@ -39,7 +39,7 @@ export function SummarySection() {
                 <p className="module-header__label">Core Focus</p>
               </div>
 
-              <div className="focus-grid mt-6">
+              <div className="focus-stack mt-6">
                 {coreFocus.items.map((item) => (
                   <div key={item} className="focus-tile">
                     <span className="status-led" data-active />
