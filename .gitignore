@@ -13,6 +13,9 @@ dist-ssr
 output
 *.local
 .stitch-cache/
+.planqa/
+.stitch-export/
+stitch-export/
 .qa/
 
 # Editor directories and files

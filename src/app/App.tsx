@@ -1,5 +1,10 @@
 import { HomePage } from "../pages/home";
+import { ThemeProvider } from "./theme";
 
 export default function App() {
-  return <HomePage />;
+  return (
+    <ThemeProvider>
+      <HomePage />
+    </ThemeProvider>
+  );
 }
