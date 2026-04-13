@@ -6,7 +6,7 @@ type SectionRailProps = {
 
 export function SectionRail({ activeSection }: SectionRailProps) {
   return (
-    <aside className="fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 xl:block">
+    <aside className="fixed left-4 top-1/2 z-40 hidden -translate-y-1/2 2xl:block">
       <nav
         aria-label="Section status"
         className="hardware-rail-panel flex flex-col gap-2 px-3 py-3"

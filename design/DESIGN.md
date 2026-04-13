@@ -1,38 +1,62 @@
 # DESIGN.md
 
 ## Overview
-This site now follows a Stitch-led **Technical Editorial & Industrial Precision** direction inspired by Teenage Engineering's playful-product sensibility. The experience should feel like a premium technical dossier rather than a corporate template or startup landing page.
+This site follows a Stitch-led **Teenage Engineering playful-product** direction implemented natively in React. The goal is a resume microsite that feels like a designed hardware object: dark by default, tactile, animated, and sharply segmented, while still presenting Dhruv Mehta's experience with full professional clarity.
+
+## Stitch Source
+- Active Stitch project: `projects/6307336002623577779`
+- Creative north star from Stitch: **Tactical Precision & Hardware Whimsy**
+- Shipping implementation uses the approved dark desktop artifact plus the same Stitch design system for the final token and layout translation
+- A matching light companion generation was requested repeatedly, but Stitch export enumeration did not return a second saved screen in this session; the shipped light mode therefore stays faithful to the locked Stitch palette choices: **Bone + Orange + Moss**
 
 ## Tone
-- Dark matte hardware surfaces on first load
-- Bone and off-white paper-like surfaces in light mode
-- Signal orange as the principal accent
-- Moss and sage as support tones
-- Crisp, engineered, and product-sheet oriented
-- Formal, premium, and visually alive without becoming flashy
+- Dark mode is the default experience
+- Matte charcoal chassis with warm paper text
+- Signal orange for primary controls and high-value emphasis
+- Moss and sage for support modules, status lights, and tonal separation
+- Bone and off-white light mode with stronger tonal jumps than a simple inversion
+- Formal and premium, but with a playful hardware-UI energy rather than a corporate brochure feel
 
 ## Typography
-- Display, labels, and navigation: `Space Grotesk`
-- Body copy and supporting UI text: `Inter`
-- Strong technical hierarchy with compact hardware labels and tabular numeric treatment
+- Display, section labels, rail labels, and navigation: `Space Grotesk`
+- Body copy and long-form supporting text: `Inter`
+- Strong uppercase label language
+- Large compressed hero headline
+- Tabular metric treatment for project numbers and interface modules
 
 ## Layout
 - Single-page resume microsite
-- Section order: hero, summary, experience, expertise, projects, education/contact
-- Strong first viewport composition with a hardware signal board
-- Flat surfaces, crisp dividers, and no soft card-heavy dashboard treatment
-- Grid-led asymmetry and generous whitespace
-- No stock imagery and no invented decorative metaphors
+- Section order: hero, professional summary, experience, expertise/toolkit, selected projects, education/contact
+- First viewport is one composition: oversized name, factual role framing, verified CTAs, and an animated signal deck
+- Strong nested plates, recessed wells, segmented modules, and rail-based navigation
+- No soft card stacks, no hero cards, no stock imagery, and no invented social proof
 
-## Interaction
-- Dark mode leads and light mode is derived from the same structure
-- Keep motion restrained and optional
-- Use tactile hover, press, and active states that feel like hardware controls
-- Use only real CTAs and verified contact links
-- Dark mode toggle stays accessible and persistent
+## Motion
+- Dark mode and light mode share the same structure and interaction language
+- Motion is persistent but disciplined:
+  - scan sweep in the hero system
+  - pulsing matrix cells
+  - animated signal bars and meter columns
+  - tactile press states on buttons and navigation
+  - active section rail status
+- Reduced-motion mode removes continuous loops and preserves only essential state change
+
+## Color System
+- Dark baseline:
+  - matte charcoal and graphite plates
+  - warm paper text
+  - signal orange controls
+  - moss/sage support surfaces
+  - occasional utility yellow/red accents in small modules
+- Light companion:
+  - bone/off-white chassis
+  - graphite text
+  - orange control surfaces
+  - moss/sage plates and structural wells
+  - clearer color variance across modules than the prior light theme
 
 ## Content Rules
 - Use only verified resume-backed content from `src/content/profile.ts`
-- Preserve all summary items, bullets, toolkit items, project metrics, dates, GPAs, and contact details
-- Do not invent certifications, outcomes, locations, or placeholder social proof
-- Decorative content must be sourced from truthful metadata or remain abstract
+- Preserve all summary items, experience bullets, expertise items, project metrics, education entries, and public contact details
+- Do not invent certifications, leadership scope, locations, placeholder metrics, or decorative filler copy
+- Decorative labels inside graphics must remain abstract and secondary to the resume content

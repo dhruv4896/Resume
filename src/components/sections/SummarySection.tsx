@@ -6,57 +6,47 @@ export function SummarySection() {
   return (
     <section id="summary" className="bg-[color:var(--page-bg)] py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,15rem)_1fr]">
-          <div className="lg:sticky lg:top-28">
-            <p className="section-plate">02 // Summary</p>
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,15rem)_1fr]">
+          <div className="xl:pt-6">
+            <p className="section-plate">02 // Professional Summary</p>
           </div>
 
-          <div className="grid gap-12 xl:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
-            <div>
-              <h2 className="font-display text-4xl font-bold tracking-[-0.03em] text-[color:var(--heading)] sm:text-5xl">
-                {professionalSummary.title}
-              </h2>
+          <div className="space-y-6">
+            <div className="hardware-panel surface-tone--graphite p-6 sm:p-8">
+              <div className="module-header">
+                <span className="status-led" data-active />
+                <p className="module-header__label">Professional Summary</p>
+              </div>
 
-              <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <div className="summary-grid mt-6">
                 {professionalSummary.items.map((item, index) => (
                   <article
                     key={item}
-                    className="hardware-row"
+                    className="hardware-row summary-card surface-tone--bone"
                   >
-                    <p className="mono-data font-label text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
+                    <p className="summary-card__index mono-data">
                       {String(index + 1).padStart(2, "0")}
                     </p>
-                    <p className="mt-3 leading-8 text-[color:var(--text-primary)]">
-                      {item}
-                    </p>
+                    <p className="summary-card__copy">{item}</p>
                   </article>
                 ))}
               </div>
             </div>
 
-            <div className="hardware-panel p-6 sm:p-8">
-              <div className="flex items-center justify-between gap-4">
-                <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--section-eyebrow)]">
-                  Focus
-                </p>
+            <div className="hardware-panel surface-tone--sage p-6 sm:p-8">
+              <div className="module-header">
                 <span className="status-led" data-active />
+                <p className="module-header__label">Core Focus</p>
               </div>
 
-              <h3 className="mt-4 font-display text-3xl font-bold tracking-[-0.03em] text-[color:var(--heading)]">
-                {coreFocus.title}
-              </h3>
-
-              <ul className="mt-8 space-y-3">
+              <div className="focus-grid mt-6">
                 {coreFocus.items.map((item) => (
-                  <li
-                    key={item}
-                    className="hardware-row flex items-start gap-3 text-sm font-medium uppercase tracking-[0.12em] text-[color:var(--text-strong)]"
-                  >
-                    <span className="status-led mt-1.5 shrink-0" data-active />
+                  <div key={item} className="focus-tile">
+                    <span className="status-led" data-active />
                     <span>{item}</span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
