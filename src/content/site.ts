@@ -3,7 +3,7 @@ import { contact } from "./profile";
 export type SectionId =
   | "summary"
   | "experience"
-  | "toolkit"
+  | "expertise"
   | "projects"
   | "contact";
 
@@ -15,7 +15,7 @@ export type SectionLink = {
 export const sectionLinks: SectionLink[] = [
   { id: "summary", label: "Summary" },
   { id: "experience", label: "Experience" },
-  { id: "toolkit", label: "Toolkit" },
+  { id: "expertise", label: "Expertise" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];

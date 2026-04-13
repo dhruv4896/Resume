@@ -1,38 +1,37 @@
 import { expertiseGroups } from "../../content/profile";
-import { SectionHeading } from "../ui/SectionHeading";
 
 export function ToolkitSection() {
   return (
-    <section id="toolkit" className="bg-[color:var(--section-soft)] py-24 sm:py-32">
+    <section id="expertise" className="bg-[color:var(--page-bg)] py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <SectionHeading
-          eyebrow="Core Competencies"
-          title="Technical Toolkit"
-          align="center"
-        />
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,15rem)_1fr]">
+          <div className="lg:sticky lg:top-28">
+            <p className="section-plate">04 // Expertise</p>
+          </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-          {expertiseGroups.map((group) => (
-            <article
-              key={group.title}
-              className="rounded-[1.75rem] border border-[color:var(--border-soft)] bg-[color:var(--card-bg)] p-6 shadow-[var(--shadow-soft)]"
-            >
-              <h3 className="font-display text-2xl text-[color:var(--heading)]">
-                {group.title}
-              </h3>
+          <div className="grid gap-6 md:grid-cols-2">
+            {expertiseGroups.map((group) => (
+              <article
+                key={group.title}
+                className="border border-[color:var(--border-soft)] bg-[color:var(--surface-elevated)] p-6 sm:p-7"
+              >
+                <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--section-eyebrow)]">
+                  {group.title}
+                </p>
 
-              <ul className="mt-6 space-y-3">
-                {group.items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-2xl bg-[color:var(--surface-elevated)] px-4 py-3 text-sm leading-7 text-[color:var(--text-primary)]"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+                <ul className="mt-6 space-y-4">
+                  {group.items.map((item) => (
+                    <li
+                      key={item}
+                      className="border-t border-[color:var(--border-soft)] pt-4 text-sm leading-7 text-[color:var(--text-primary)]"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

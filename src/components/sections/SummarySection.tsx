@@ -1,48 +1,58 @@
 import { summaryGroups } from "../../content/profile";
-import { SectionHeading } from "../ui/SectionHeading";
 
 export function SummarySection() {
   const [professionalSummary, coreFocus] = summaryGroups;
 
   return (
-    <section id="summary" className="bg-[color:var(--section-soft)] py-24 sm:py-32">
+    <section id="summary" className="bg-[color:var(--page-bg)] py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <SectionHeading
-          eyebrow="Strategic Profile"
-          title={professionalSummary.title}
-        />
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,15rem)_1fr]">
+          <div className="lg:sticky lg:top-28">
+            <p className="section-plate">02 // Summary</p>
+          </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {professionalSummary.items.map((item) => (
-            <article
-              key={item}
-              className="rounded-[1.75rem] border border-[color:var(--border-soft)] bg-[color:var(--card-bg)] p-7 text-[color:var(--text-primary)] shadow-[var(--shadow-soft)] transition-transform duration-200 hover:-translate-y-1 motion-reduce:transition-none"
-            >
-              <p className="leading-8">{item}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-12 rounded-[2rem] border border-[color:var(--border-soft)] bg-[color:var(--surface-elevated)] p-8 shadow-[var(--shadow-soft)] sm:p-10">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,18rem),1fr] lg:items-start">
+          <div className="grid gap-12 xl:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--section-eyebrow)]">
-                Focus Areas
-              </p>
-              <h3 className="mt-3 font-display text-3xl italic text-[color:var(--heading)]">
-                {coreFocus.title}
-              </h3>
+              <h2 className="font-display text-4xl font-bold tracking-[-0.03em] text-[color:var(--heading)] sm:text-5xl">
+                {professionalSummary.title}
+              </h2>
+
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                {professionalSummary.items.map((item, index) => (
+                  <article
+                    key={item}
+                    className="border-t border-[color:var(--border-soft)] pt-5"
+                  >
+                    <p className="font-label text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <p className="mt-3 leading-8 text-[color:var(--text-primary)]">
+                      {item}
+                    </p>
+                  </article>
+                ))}
+              </div>
             </div>
 
-            <div className="flex flex-wrap gap-3">
-              {coreFocus.items.map((item) => (
-                <span
-                  key={item}
-                  className="inline-flex rounded-full bg-[color:var(--chip-bg)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--chip-text)]"
-                >
-                  {item}
-                </span>
-              ))}
+            <div className="border border-[color:var(--border-soft)] bg-[color:var(--section-soft)] p-6 sm:p-8">
+              <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--section-eyebrow)]">
+                Core Focus
+              </p>
+              <h3 className="mt-4 font-display text-3xl font-bold tracking-[-0.03em] text-[color:var(--heading)]">
+                {coreFocus.title}
+              </h3>
+
+              <ul className="mt-8 space-y-4">
+                {coreFocus.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 border-t border-[color:var(--border-soft)] pt-4 text-sm font-medium uppercase tracking-[0.12em] text-[color:var(--text-strong)]"
+                  >
+                    <span className="utility-dot mt-1.5 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

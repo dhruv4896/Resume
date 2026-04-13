@@ -48,13 +48,13 @@ export function ThemeToggle() {
       aria-label={`Switch to ${nextMode} mode`}
       aria-pressed={mode === "dark"}
       onClick={toggleTheme}
-      className="inline-flex h-11 items-center gap-2 rounded-full border border-[color:var(--border-soft)] bg-[color:var(--surface-elevated)] px-4 text-sm font-medium text-[color:var(--text-strong)] shadow-[var(--shadow-soft)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--surface-hover)] motion-reduce:transition-none"
+      className="inline-flex h-10 items-center gap-2 border border-[color:var(--border-strong)] bg-[color:var(--surface-elevated)] px-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--text-strong)] transition-colors duration-200 hover:bg-[color:var(--surface-hover)] motion-reduce:transition-none"
     >
-      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[color:var(--chip-bg)] text-[color:var(--chip-text)]">
+      <span className="flex h-6 w-6 items-center justify-center border border-[color:var(--border-soft)] bg-[color:var(--accent-soft)] text-[color:var(--accent-strong)]">
         {mode === "light" ? <MoonIcon /> : <SunIcon />}
       </span>
       <span className="hidden sm:inline">
-        {mode === "light" ? "Dark mode" : "Light mode"}
+        {mode === "light" ? "Dark" : "Light"}
       </span>
     </button>
   );

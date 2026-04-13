@@ -1,37 +1,38 @@
 # DESIGN.md
 
 ## Overview
-Create a Stitch-led resume microsite for Dhruv Mehta that feels formal, light, editorial, and premium. The experience should read like a polished digital CV rather than a startup portfolio, dashboard, or speculative concept page.
+This site now follows a Stitch-led **Technical Editorial & Industrial Precision** direction inspired by Teenage Engineering's playful-product sensibility. The experience should feel like a premium technical dossier rather than a corporate template or startup landing page.
 
 ## Tone
-- Light editorial mode
-- Ivory paper-like surfaces
-- Slate and muted-gold accents
-- Formal and professional
-- Editorial rather than decorative
-- Text-first and hierarchy-driven
+- Bone and off-white paper-like surfaces in light mode
+- Deep charcoal in dark mode
+- Signal orange as the principal accent
+- Moss and sage as support tones
+- Crisp, engineered, and product-sheet oriented
+- Formal, premium, and visually alive without becoming flashy
 
 ## Typography
-- Display and section headings: `Newsreader`
-- Body and UI text: `Inter`
-- Large serif masthead for the name
-- Elegant editorial contrast with restrained supporting labels
+- Display and major section titles: `Noto Serif`
+- Body copy and UI text: `Inter`
+- Labels, metadata, and navigation: `Space Grotesk`
+- Strong serif/sans contrast with small technical label typography
 
 ## Layout
 - Single-page resume microsite
-- Clear section sequence: hero, summary, experience, expertise/toolkit, projects, education/contact
-- Strong left alignment and generous whitespace
-- No stock imagery
-- No decorative graphics disconnected from the resume content
-- Stitch-generated structure should remain the visual source of truth
+- Section order: hero, summary, experience, expertise, projects, education/contact
+- Strong first viewport composition with a technical metadata panel
+- Flat surfaces, crisp dividers, and no soft card-heavy dashboard treatment
+- Grid-led asymmetry and generous whitespace
+- No stock imagery and no invented decorative metaphors
 
 ## Interaction
-- Keep motion restrained
-- Keep navigation factual and simple
-- Preserve only real resume CTAs: CV, LinkedIn, email, phone
+- Light mode leads and dark mode is derived from the same structure
+- Keep motion restrained and optional
+- Use only real CTAs and verified contact links
+- Dark mode toggle stays accessible and persistent
 
 ## Content Rules
-- Use only verified resume-backed content
-- Preserve dates, titles, GPAs, metrics, and links exactly
-- Do not invent claims, certifications, outcomes, or tools
-- Project panels must stay text-first and must retain the `50%` and `85%` metrics
+- Use only verified resume-backed content from `src/content/profile.ts`
+- Preserve all summary items, bullets, toolkit items, project metrics, dates, GPAs, and contact details
+- Do not invent certifications, outcomes, locations, or placeholder social proof
+- Decorative content must be sourced from truthful metadata or remain abstract

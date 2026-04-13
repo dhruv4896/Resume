@@ -1,14 +1,14 @@
 # Documentation.md
 
 ## Current status
-- milestone: Stitch-led resume microsite implemented and under verification
+- milestone: Stitch-led visual reset implemented as a native React rebuild
 - branch: main
-- local preview status: verified against the stitched runtime in local preview
-- build status: typecheck, lint, and build passing
+- local preview status: pending final browser verification after the new industrial redesign
+- build status: pending rerun after the native redesign pass
 
 ## Decisions made
-- The shipping implementation now uses a Stitch-derived HTML shell rendered through an iframe wrapper.
-- The visual structure is sourced from the new light editorial Stitch screen, while factual content is injected from `src/content/profile.ts`.
+- The shipping implementation uses native React sections, not an iframe wrapper.
+- The visual system is derived from Stitch project `1341489297343221881` and implemented against the exported light desktop, mobile, and dark desktop artifacts.
 - Resume data remains centralized in `src/content/profile.ts`.
 - Public links are corrected to the verified Dhruv Mehta email, LinkedIn, phone, and CV PDF.
 
@@ -20,15 +20,17 @@
 ## Artifact paths
 - design contract: `design/DESIGN.md`
 - normalized content packet: `src/content/profile.ts`
-- stitched wrapper: `src/components/stitch/StitchResumeFrame.tsx`
-- stitched content binder: `src/components/stitch/buildStitchResumeHtml.ts`
-- local stitched source artifact: `src/stitch/desktop-source.html`
+- Stitch export bundle: `stitch-export/1341489297343221881/`
+- exported light desktop HTML: `stitch-export/1341489297343221881/desktop-light.html`
+- exported mobile HTML: `stitch-export/1341489297343221881/mobile-light.html`
+- exported dark desktop HTML: `stitch-export/1341489297343221881/desktop-dark.html`
 
 ## QA notes
-- Verified the local preview renders the corrected CV, LinkedIn, email, and phone links in the stitched DOM.
-- Confirmed the live stitched DOM no longer contains the old Gatech email, placeholder contact links, or invented project titles from the earlier export.
-- Current-tree security scan found no API keys; stale local-path and Stitch-artifact exposure is being removed from the tracked tree.
+- Stitch now provides the source screenshots and design system for the new industrial editorial direction.
+- The native React rebuild preserves the full content packet and is replacing the previous muted theme.
+- A fresh security scan is still required before push, including recent tracked history and exported files selected for commit.
 
 ## Known follow-ups
-- Run a final narrow sensitive-data scan excluding `node_modules`.
-- Push the Stitch-led revamp to `main` and re-run the GitHub Pages deployment.
+- Run typecheck, lint, and build on the redesigned implementation.
+- Verify desktop, mobile, dark mode, and all public links in a real browser.
+- Re-run the sensitive-data audit before any push.

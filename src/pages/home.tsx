@@ -20,7 +20,7 @@ export function HomePage() {
 
       <SiteHeader />
 
-      <main>
+      <main className="overflow-hidden">
         <HeroSection />
         <SummarySection />
         <ExperienceSection />
@@ -29,11 +29,11 @@ export function HomePage() {
         <EducationContactSection />
       </main>
 
-      <footer className="border-t border-[color:var(--border-soft)] bg-[color:var(--page-bg)]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-xs uppercase tracking-[0.22em] text-[color:var(--muted)] sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
-          <p>(c) Dhruv Mehta</p>
-          <p>{roleFraming}</p>
-          <div className="flex flex-wrap gap-4">
+      <footer className="border-t border-[color:var(--border-soft)] bg-[color:var(--footer-bg)]">
+        <div className="mx-auto grid max-w-7xl gap-4 px-6 py-8 font-label text-[0.64rem] uppercase tracking-[0.18em] text-[color:var(--muted)] sm:px-8 lg:grid-cols-[1fr_auto_auto] lg:items-center lg:px-10">
+          <p>Dhruv Mehta // Verified Resume Microsite</p>
+          <p>{roleFraming.replaceAll(" / ", " // ")}</p>
+          <div className="flex flex-wrap gap-4 lg:justify-end">
             <a href={publicLinks.linkedin} target="_blank" rel="noreferrer">
               LinkedIn
             </a>

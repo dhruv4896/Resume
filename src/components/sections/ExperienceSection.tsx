@@ -1,56 +1,44 @@
 import { experienceItems } from "../../content/profile";
-import { SectionHeading } from "../ui/SectionHeading";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="bg-[color:var(--page-bg)] py-24 sm:py-32">
+    <section id="experience" className="bg-[color:var(--section-soft)] py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
-            <div className="lg:sticky lg:top-32">
-              <SectionHeading
-                eyebrow="Professional History"
-                title="Experience"
-              />
-            </div>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,15rem)_1fr]">
+          <div className="lg:sticky lg:top-28">
+            <p className="section-plate">03 // Experience</p>
           </div>
 
-          <div className="space-y-14 lg:col-span-8">
+          <div className="space-y-14">
             {experienceItems.map((item, index) => (
               <article
                 key={`${item.company}-${item.period}`}
-                className="relative border-l border-[color:var(--timeline-line)] pl-8 sm:pl-12"
+                className={index === 0 ? "" : "border-t border-[color:var(--border-soft)] pt-10"}
               >
-                <span
-                  aria-hidden="true"
-                  className={`absolute -left-[0.44rem] top-1 h-3.5 w-3.5 rounded-full border-2 border-[color:var(--page-bg)] ${
-                    index === 0
-                      ? "bg-[color:var(--timeline-dot)]"
-                      : "bg-[color:var(--timeline-dot-soft)]"
-                  }`}
-                />
-
-                <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                  <div className="max-w-2xl">
-                    <h3 className="font-display text-3xl text-[color:var(--heading)] sm:text-[2rem]">
+                <div className="grid gap-8 lg:grid-cols-[minmax(0,18rem)_1fr] lg:gap-12">
+                  <div>
+                    <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+                      {item.period}
+                    </p>
+                    <h3 className="mt-4 font-display text-3xl font-bold tracking-[-0.03em] text-[color:var(--heading)] sm:text-[2.35rem]">
                       {item.company}
                     </h3>
-                    <p className="mt-2 text-lg text-[color:var(--muted)]">
+                    <p className="mt-3 font-label text-[0.72rem] font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
                       {item.title}
                     </p>
                   </div>
-                  <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--section-eyebrow)]">
-                    {item.period}
-                  </p>
-                </div>
 
-                <ul className="space-y-4 pl-5 text-[color:var(--text-primary)] marker:text-[color:var(--accent-strong)]">
-                  {item.bullets.map((bullet) => (
-                    <li key={bullet} className="leading-8">
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="grid gap-4 md:grid-cols-2">
+                    {item.bullets.map((bullet) => (
+                      <li
+                        key={bullet}
+                        className="border-t border-[color:var(--border-soft)] pt-4 text-sm leading-7 text-[color:var(--text-primary)]"
+                      >
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </article>
             ))}
           </div>

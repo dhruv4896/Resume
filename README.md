@@ -1,6 +1,6 @@
 # Dhruv Mehta Resume Microsite
 
-A Stitch-led React resume microsite for Dhruv Mehta that preserves the full resume-backed content while rendering a light editorial visual system exported from Google Stitch.
+A Stitch-led React resume microsite for Dhruv Mehta that preserves the full resume-backed content while implementing a bold technical-editorial visual system in native React.
 
 ## Stack
 - Vite
@@ -18,7 +18,8 @@ A Stitch-led React resume microsite for Dhruv Mehta that preserves the full resu
 ## Content Provenance
 - Resume content is derived from the provided Dhruv Mehta source resumes and normalized in `src/content/profile.ts`.
 - Public downloadable CV: `public/cv/dhruv-mehta-cv.pdf`
-- The live page is rendered through a stitched HTML shell that is corrected with the verified resume content at runtime.
+- The visual direction is sourced from Google Stitch export artifacts in `stitch-export/1341489297343221881/`.
+- The live page is rendered through native React components rather than an iframe or stitched HTML shell.
 
 ## Deploy
 This repository is configured for GitHub Pages project-site deployment.
