@@ -48,13 +48,18 @@ export function ThemeToggle() {
       aria-label={`Switch to ${nextMode} mode`}
       aria-pressed={mode === "dark"}
       onClick={toggleTheme}
-      className="inline-flex h-10 items-center gap-2 border border-[color:var(--border-strong)] bg-[color:var(--surface-elevated)] px-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--text-strong)] transition-colors duration-200 hover:bg-[color:var(--surface-hover)] motion-reduce:transition-none"
+      className="theme-toggle"
     >
-      <span className="flex h-6 w-6 items-center justify-center border border-[color:var(--border-soft)] bg-[color:var(--accent-soft)] text-[color:var(--accent-strong)]">
-        {mode === "light" ? <MoonIcon /> : <SunIcon />}
-      </span>
-      <span className="hidden sm:inline">
-        {mode === "light" ? "Dark" : "Light"}
+      <span className="theme-toggle__track">
+        <span className="theme-toggle__thumb" data-mode={mode} />
+        <span className="theme-toggle__label" data-active={mode === "dark"}>
+          <MoonIcon />
+          Dark
+        </span>
+        <span className="theme-toggle__label" data-active={mode === "light"}>
+          <SunIcon />
+          Light
+        </span>
       </span>
     </button>
   );

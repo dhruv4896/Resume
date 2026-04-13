@@ -19,7 +19,7 @@ function ContactRow({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
-      className="block border-t border-[color:var(--strong-border)] pt-4 transition-colors duration-200 hover:text-[color:var(--strong-accent)] motion-reduce:transition-none"
+      className="hardware-row block transition-colors duration-200 hover:text-[color:var(--strong-accent)] motion-reduce:transition-none"
     >
       <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--strong-subtle)]">
         {label}
@@ -37,7 +37,7 @@ export function EducationContactSection() {
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,15rem)_1fr]">
           <div className="lg:sticky lg:top-28">
-            <p className="section-plate">06 // Foundation</p>
+            <p className="section-plate">06 // Education // Contact</p>
           </div>
 
           <div className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,0.88fr)]">
@@ -50,7 +50,7 @@ export function EducationContactSection() {
                 {education.map((item) => (
                   <article
                     key={`${item.school}-${item.period}`}
-                    className="border-t border-[color:var(--border-soft)] pt-6"
+                    className="hardware-row"
                   >
                     <h3 className="font-display text-3xl font-bold tracking-[-0.03em] text-[color:var(--heading)]">
                       {item.degree}
@@ -68,17 +68,10 @@ export function EducationContactSection() {
               </div>
             </div>
 
-            <aside className="border border-[color:var(--strong-border)] bg-[linear-gradient(180deg,var(--strong-surface-start),var(--strong-surface-end))] p-6 text-[color:var(--strong-text)] sm:p-8">
-              <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--strong-subtle)]">
-                Contact Plate
-              </p>
-              <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.03em] text-[color:var(--strong-text)]">
+            <aside className="hardware-panel bg-[linear-gradient(180deg,var(--strong-surface-start),var(--strong-surface-end))] p-6 text-[color:var(--strong-text)] sm:p-8">
+              <h2 className="font-display text-4xl font-bold tracking-[-0.03em] text-[color:var(--strong-text)]">
                 Contact
               </h2>
-              <p className="mt-4 leading-8 text-[color:var(--strong-muted)]">
-                Verified links and contact details from the current resume
-                source.
-              </p>
 
               <div className="mt-8 space-y-4">
                 <ContactRow
@@ -100,23 +93,9 @@ export function EducationContactSection() {
                 <ContactRow
                   href={publicLinks.resume}
                   label="Curriculum Vitae"
-                  value="Open the PDF resume"
+                  value="Download PDF CV"
                   external
                 />
-              </div>
-
-              <div className="mt-8 border border-[color:var(--strong-border)] bg-[color:var(--strong-card)] p-4">
-                <div className="technical-grid flex min-h-28 flex-col justify-between p-4">
-                  <p className="font-label text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[color:var(--strong-subtle)]">
-                    Locations // Domains
-                  </p>
-                  <div className="grid gap-2 font-label text-[0.64rem] font-medium uppercase tracking-[0.14em] text-[color:var(--strong-muted)] sm:grid-cols-2">
-                    <p>Atlanta</p>
-                    <p>Abu Dhabi</p>
-                    <p>San Francisco</p>
-                    <p>Banking // Healthcare // ML</p>
-                  </div>
-                </div>
               </div>
             </aside>
           </div>

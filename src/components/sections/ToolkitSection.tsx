@@ -13,17 +13,20 @@ export function ToolkitSection() {
             {expertiseGroups.map((group) => (
               <article
                 key={group.title}
-                className="border border-[color:var(--border-soft)] bg-[color:var(--surface-elevated)] p-6 sm:p-7"
+                className="hardware-panel p-6 sm:p-7"
               >
-                <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--section-eyebrow)]">
-                  {group.title}
-                </p>
+                <div className="flex items-center justify-between gap-4">
+                  <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--section-eyebrow)]">
+                    {group.title}
+                  </p>
+                  <span className="status-led" />
+                </div>
 
-                <ul className="mt-6 space-y-4">
+                <ul className="mt-6 space-y-3">
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="border-t border-[color:var(--border-soft)] pt-4 text-sm leading-7 text-[color:var(--text-primary)]"
+                      className="hardware-row text-sm leading-7 text-[color:var(--text-primary)]"
                     >
                       {item}
                     </li>

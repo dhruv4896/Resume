@@ -1,3 +1,5 @@
+import { useActiveSection } from "../app/useActiveSection";
+import { SectionRail } from "../components/layout/SectionRail";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { EducationContactSection } from "../components/sections/EducationContactSection";
 import { ExperienceSection } from "../components/sections/ExperienceSection";
@@ -9,6 +11,8 @@ import { roleFraming } from "../content/profile";
 import { publicLinks } from "../content/site";
 
 export function HomePage() {
+  const activeSection = useActiveSection();
+
   return (
     <div className="min-h-screen bg-[color:var(--page-bg)] text-[color:var(--text-primary)] transition-colors duration-300 motion-reduce:transition-none">
       <a
@@ -18,7 +22,8 @@ export function HomePage() {
         Skip to content
       </a>
 
-      <SiteHeader />
+      <SiteHeader activeSection={activeSection} />
+      <SectionRail activeSection={activeSection} />
 
       <main className="overflow-hidden">
         <HeroSection />
@@ -31,7 +36,7 @@ export function HomePage() {
 
       <footer className="border-t border-[color:var(--border-soft)] bg-[color:var(--footer-bg)]">
         <div className="mx-auto grid max-w-7xl gap-4 px-6 py-8 font-label text-[0.64rem] uppercase tracking-[0.18em] text-[color:var(--muted)] sm:px-8 lg:grid-cols-[1fr_auto_auto] lg:items-center lg:px-10">
-          <p>Dhruv Mehta // Verified Resume Microsite</p>
+          <p>Dhruv Mehta</p>
           <p>{roleFraming.replaceAll(" / ", " // ")}</p>
           <div className="flex flex-wrap gap-4 lg:justify-end">
             <a href={publicLinks.linkedin} target="_blank" rel="noreferrer">

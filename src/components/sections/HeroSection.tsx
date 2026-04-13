@@ -1,11 +1,11 @@
-import { resumeIntro, roleFraming } from "../../content/profile";
+import { projects, resumeIntro, roleFraming } from "../../content/profile";
 import { publicLinks } from "../../content/site";
 
-const heroFacts = [
-  "FAB // 2021-Present",
-  "Georgia Tech // M.S. ML",
-  "Banking // Healthcare",
-  "Projects // 50% + 85%",
+const focusAreas = [
+  "Business Continuity",
+  "Information Security",
+  "Business Analysis",
+  "Machine Learning",
 ];
 
 function ArrowIcon() {
@@ -27,72 +27,77 @@ function ArrowIcon() {
   );
 }
 
-function HeroPanel() {
+function HeroSignalBoard() {
   return (
-    <div className="relative w-full max-w-sm border border-[color:var(--border-soft)] bg-[color:var(--hero-block-bg)] p-4">
-      <div className="technical-grid absolute inset-0 opacity-70" />
-      <div className="absolute inset-x-0 top-0 h-1 bg-[color:var(--accent-strong)]" />
-      <div className="absolute bottom-4 right-4 h-14 w-14 border border-[color:var(--hero-block-line)] bg-[linear-gradient(135deg,var(--accent-soft),transparent)]" />
+    <div className="hardware-panel relative w-full max-w-md p-5 sm:p-6">
+      <div className="flex items-center justify-between gap-4">
+        <p className="font-label text-[0.66rem] font-bold uppercase tracking-[0.22em] text-[color:var(--section-eyebrow)]">
+          Core Focus
+        </p>
+        <span className="status-led" data-active />
+      </div>
 
-      <div className="relative z-10 flex min-h-72 flex-col justify-between">
-        <div className="space-y-3">
-          <p className="font-label text-[0.64rem] font-bold uppercase tracking-[0.2em] text-[color:var(--hero-meta)]">
-            Field Technical
-          </p>
-          <div className="technical-divider" />
-        </div>
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        {focusAreas.map((item) => (
+          <div key={item} className="module-segment">
+            <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[color:var(--heading)]">
+              {item}
+            </p>
+          </div>
+        ))}
+      </div>
 
-        <div className="grid gap-3 sm:grid-cols-2">
-          {heroFacts.map((fact) => (
-            <div
-              key={fact}
-              className="border border-[color:var(--hero-block-line)] px-3 py-4"
-            >
-              <p className="font-label text-[0.64rem] font-medium uppercase tracking-[0.16em] text-[color:var(--hero-meta)]">
-                {fact}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="pt-6">
-          <div className="technical-divider" />
-          <p className="mt-4 font-label text-[0.64rem] font-medium uppercase tracking-[0.18em] text-[color:var(--hero-meta)]">
-            Verified resume content // no filler // no invented metrics
-          </p>
-        </div>
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        {projects.map((project) => (
+          <article
+            key={project.title}
+            className="metric-module"
+            tabIndex={0}
+            aria-label={`${project.title}: ${project.metric} ${project.metricLabel}`}
+          >
+            <p className="font-label text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[color:var(--section-eyebrow)]">
+              {project.title}
+            </p>
+            <p className="mono-data mt-4 text-5xl font-bold tracking-[-0.05em] text-[color:var(--accent-strong)]">
+              {project.metric}
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[color:var(--text-primary)]">
+              {project.metricLabel}
+            </p>
+          </article>
+        ))}
       </div>
     </div>
   );
 }
 
 export function HeroSection() {
-  const eyebrow = roleFraming.replaceAll(" / ", " // ");
-
   return (
-    <section id="top" className="relative isolate overflow-hidden bg-[color:var(--page-bg)]">
+    <section
+      id="top"
+      className="relative isolate overflow-hidden bg-[color:var(--page-bg)]"
+    >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--hero-grad-start),var(--hero-grad-end))]" />
         <div className="technical-grid absolute inset-0 opacity-80" />
-        <div className="absolute left-[-6rem] top-24 h-56 w-56 bg-[color:var(--ornament-primary)] blur-3xl" />
-        <div className="absolute right-[4%] top-[18%] h-72 w-72 bg-[color:var(--ornament-secondary)] blur-3xl" />
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.04))] opacity-60" />
+        <div className="absolute left-[-5rem] top-20 h-56 w-56 bg-[color:var(--ornament-primary)] blur-3xl" />
+        <div className="absolute right-[10%] top-[16%] h-48 w-48 bg-[color:var(--ornament-secondary)] blur-3xl" />
+        <div className="absolute bottom-[12%] right-[18%] h-24 w-24 bg-[color:var(--ornament-tertiary)] blur-2xl" />
       </div>
 
       <div className="mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl items-center px-6 py-16 sm:px-8 sm:py-20 lg:px-10">
         <div className="grid w-full gap-12 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8">
-            <p className="section-plate mb-8">{eyebrow}</p>
+          <div className="lg:col-span-7">
+            <p className="section-plate mb-8">01 // Overview</p>
 
-            <h1 className="font-display text-[clamp(4rem,10vw,7.5rem)] font-bold leading-[0.86] tracking-[-0.05em] text-[color:var(--heading)]">
+            <h1 className="font-display text-[clamp(4rem,10vw,8rem)] font-bold leading-[0.84] tracking-[-0.06em] text-[color:var(--heading)]">
               Dhruv
               <br />
               Mehta
             </h1>
 
             <p className="mt-6 max-w-3xl font-label text-sm font-medium uppercase tracking-[0.16em] text-[color:var(--accent-strong)] sm:text-base">
-              Business continuity // information security // business analysis
-              // machine learning
+              {roleFraming.replaceAll(" / ", " // ")}
             </p>
 
             <p className="mt-8 max-w-3xl text-lg leading-8 text-[color:var(--text-primary)] sm:text-xl sm:leading-9">
@@ -104,7 +109,7 @@ export function HeroSection() {
                 href={publicLinks.resume}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 border border-[color:var(--accent-strong)] bg-[color:var(--primary-action-bg)] px-6 py-3.5 font-label text-[0.72rem] font-bold uppercase tracking-[0.18em] text-[color:var(--primary-action-text)] transition-colors duration-200 hover:bg-[color:var(--accent-bright)] motion-reduce:transition-none"
+                className="control-button control-button--primary"
               >
                 View CV
                 <ArrowIcon />
@@ -113,27 +118,21 @@ export function HeroSection() {
                 href={publicLinks.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center border border-[color:var(--border-strong)] bg-[color:var(--surface-elevated)] px-6 py-3.5 font-label text-[0.72rem] font-bold uppercase tracking-[0.18em] text-[color:var(--heading)] transition-colors duration-200 hover:bg-[color:var(--surface-hover)] motion-reduce:transition-none"
+                className="control-button control-button--ghost"
               >
                 LinkedIn
               </a>
-              <a
-                href={publicLinks.email}
-                className="inline-flex items-center border border-[color:var(--border-strong)] px-6 py-3.5 font-label text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--heading)] transition-colors duration-200 hover:border-[color:var(--accent-strong)] hover:text-[color:var(--accent-strong)] motion-reduce:transition-none"
-              >
+              <a href={publicLinks.email} className="control-button control-button--ghost">
                 Email
               </a>
-              <a
-                href={publicLinks.phone}
-                className="inline-flex items-center border border-[color:var(--border-strong)] px-6 py-3.5 font-label text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--heading)] transition-colors duration-200 hover:border-[color:var(--accent-strong)] hover:text-[color:var(--accent-strong)] motion-reduce:transition-none"
-              >
+              <a href={publicLinks.phone} className="control-button control-button--ghost">
                 Phone
               </a>
             </div>
           </div>
 
-          <div className="lg:col-span-4 lg:justify-self-end">
-            <HeroPanel />
+          <div className="lg:col-span-5 lg:justify-self-end">
+            <HeroSignalBoard />
           </div>
         </div>
       </div>

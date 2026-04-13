@@ -4,30 +4,30 @@
 This site now follows a Stitch-led **Technical Editorial & Industrial Precision** direction inspired by Teenage Engineering's playful-product sensibility. The experience should feel like a premium technical dossier rather than a corporate template or startup landing page.
 
 ## Tone
+- Dark matte hardware surfaces on first load
 - Bone and off-white paper-like surfaces in light mode
-- Deep charcoal in dark mode
 - Signal orange as the principal accent
 - Moss and sage as support tones
 - Crisp, engineered, and product-sheet oriented
 - Formal, premium, and visually alive without becoming flashy
 
 ## Typography
-- Display and major section titles: `Noto Serif`
-- Body copy and UI text: `Inter`
-- Labels, metadata, and navigation: `Space Grotesk`
-- Strong serif/sans contrast with small technical label typography
+- Display, labels, and navigation: `Space Grotesk`
+- Body copy and supporting UI text: `Inter`
+- Strong technical hierarchy with compact hardware labels and tabular numeric treatment
 
 ## Layout
 - Single-page resume microsite
 - Section order: hero, summary, experience, expertise, projects, education/contact
-- Strong first viewport composition with a technical metadata panel
+- Strong first viewport composition with a hardware signal board
 - Flat surfaces, crisp dividers, and no soft card-heavy dashboard treatment
 - Grid-led asymmetry and generous whitespace
 - No stock imagery and no invented decorative metaphors
 
 ## Interaction
-- Light mode leads and dark mode is derived from the same structure
+- Dark mode leads and light mode is derived from the same structure
 - Keep motion restrained and optional
+- Use tactile hover, press, and active states that feel like hardware controls
 - Use only real CTAs and verified contact links
 - Dark mode toggle stays accessible and persistent
 

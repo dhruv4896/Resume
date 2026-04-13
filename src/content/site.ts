@@ -8,16 +8,17 @@ export type SectionId =
   | "contact";
 
 export type SectionLink = {
+  code: string;
   id: SectionId;
   label: string;
 };
 
 export const sectionLinks: SectionLink[] = [
-  { id: "summary", label: "Summary" },
-  { id: "experience", label: "Experience" },
-  { id: "expertise", label: "Expertise" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
+  { id: "summary", label: "Summary", code: "02" },
+  { id: "experience", label: "Experience", code: "03" },
+  { id: "expertise", label: "Expertise", code: "04" },
+  { id: "projects", label: "Projects", code: "05" },
+  { id: "contact", label: "Contact", code: "06" },
 ];
 
 export function buildPhoneHref(phone: string) {

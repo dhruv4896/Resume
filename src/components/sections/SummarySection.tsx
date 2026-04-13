@@ -21,9 +21,9 @@ export function SummarySection() {
                 {professionalSummary.items.map((item, index) => (
                   <article
                     key={item}
-                    className="border-t border-[color:var(--border-soft)] pt-5"
+                    className="hardware-row"
                   >
-                    <p className="font-label text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
+                    <p className="mono-data font-label text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
                       {String(index + 1).padStart(2, "0")}
                     </p>
                     <p className="mt-3 leading-8 text-[color:var(--text-primary)]">
@@ -34,21 +34,25 @@ export function SummarySection() {
               </div>
             </div>
 
-            <div className="border border-[color:var(--border-soft)] bg-[color:var(--section-soft)] p-6 sm:p-8">
-              <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--section-eyebrow)]">
-                Core Focus
-              </p>
+            <div className="hardware-panel p-6 sm:p-8">
+              <div className="flex items-center justify-between gap-4">
+                <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--section-eyebrow)]">
+                  Focus
+                </p>
+                <span className="status-led" data-active />
+              </div>
+
               <h3 className="mt-4 font-display text-3xl font-bold tracking-[-0.03em] text-[color:var(--heading)]">
                 {coreFocus.title}
               </h3>
 
-              <ul className="mt-8 space-y-4">
+              <ul className="mt-8 space-y-3">
                 {coreFocus.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 border-t border-[color:var(--border-soft)] pt-4 text-sm font-medium uppercase tracking-[0.12em] text-[color:var(--text-strong)]"
+                    className="hardware-row flex items-start gap-3 text-sm font-medium uppercase tracking-[0.12em] text-[color:var(--text-strong)]"
                   >
-                    <span className="utility-dot mt-1.5 shrink-0" />
+                    <span className="status-led mt-1.5 shrink-0" data-active />
                     <span>{item}</span>
                   </li>
                 ))}

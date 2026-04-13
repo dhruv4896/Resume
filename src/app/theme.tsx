@@ -32,18 +32,8 @@ function readStoredTheme(): ThemeMode | null {
     : null;
 }
 
-function getSystemTheme(): ThemeMode {
-  if (typeof window === "undefined") {
-    return "light";
-  }
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
-
 export function resolveInitialTheme(): ThemeMode {
-  return readStoredTheme() ?? getSystemTheme();
+  return readStoredTheme() ?? "dark";
 }
 
 export function applyTheme(mode: ThemeMode) {

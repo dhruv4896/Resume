@@ -10,14 +10,14 @@ export function ExperienceSection() {
           </div>
 
           <div className="space-y-14">
-            {experienceItems.map((item, index) => (
+            {experienceItems.map((item) => (
               <article
                 key={`${item.company}-${item.period}`}
-                className={index === 0 ? "" : "border-t border-[color:var(--border-soft)] pt-10"}
+                className="hardware-panel p-6 sm:p-8"
               >
                 <div className="grid gap-8 lg:grid-cols-[minmax(0,18rem)_1fr] lg:gap-12">
-                  <div>
-                    <p className="font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+                  <div className="border-b border-[color:var(--border-soft)] pb-6 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8">
+                    <p className="mono-data font-label text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
                       {item.period}
                     </p>
                     <h3 className="mt-4 font-display text-3xl font-bold tracking-[-0.03em] text-[color:var(--heading)] sm:text-[2.35rem]">
@@ -28,11 +28,11 @@ export function ExperienceSection() {
                     </p>
                   </div>
 
-                  <ul className="grid gap-4 md:grid-cols-2">
+                  <ul className="grid gap-3 md:grid-cols-2">
                     {item.bullets.map((bullet) => (
                       <li
                         key={bullet}
-                        className="border-t border-[color:var(--border-soft)] pt-4 text-sm leading-7 text-[color:var(--text-primary)]"
+                        className="hardware-row text-sm leading-7 text-[color:var(--text-primary)]"
                       >
                         {bullet}
                       </li>
