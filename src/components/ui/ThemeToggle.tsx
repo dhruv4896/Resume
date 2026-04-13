@@ -38,7 +38,11 @@ function SunIcon() {
   );
 }
 
-export function ThemeToggle() {
+type ThemeToggleProps = {
+  compact?: boolean;
+};
+
+export function ThemeToggle({ compact = false }: ThemeToggleProps) {
   const { mode, toggleTheme } = useTheme();
   const nextMode = mode === "light" ? "dark" : "light";
   const isDark = mode === "dark";
@@ -50,12 +54,17 @@ export function ThemeToggle() {
       aria-pressed={isDark}
       onClick={toggleTheme}
       className="theme-toggle-button"
+      data-compact={compact}
     >
       <span className="theme-toggle-button__dot" data-mode={mode} />
       <span className="theme-toggle-button__icon" aria-hidden="true">
         {isDark ? <MoonIcon /> : <SunIcon />}
       </span>
-      <span className="theme-toggle-button__label">{isDark ? "Dark" : "Light"}</span>
+      {!compact ? (
+        <span className="theme-toggle-button__label">
+          {isDark ? "Dark" : "Light"}
+        </span>
+      ) : null}
     </button>
   );
 }

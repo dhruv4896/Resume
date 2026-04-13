@@ -48,22 +48,26 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="hero-shell relative isolate overflow-hidden bg-[color:var(--page-bg)]"
+      className="hero-shell section-zone section-zone--hero relative isolate overflow-hidden bg-[color:var(--page-bg)]"
     >
       <div className="hero-shell__backdrop" aria-hidden="true">
         <div className="hero-shell__grid technical-grid" />
         <div className="hero-shell__panel hero-shell__panel--upper" />
         <div className="hero-shell__panel hero-shell__panel--lower" />
+        <div className="hero-shell__beam hero-shell__beam--wide" />
+        <div className="hero-shell__beam hero-shell__beam--console" />
         <div className="hero-shell__glow hero-shell__glow--orange" />
         <div className="hero-shell__glow hero-shell__glow--teal" />
         <div className="hero-shell__rail hero-shell__rail--horizontal" />
         <div className="hero-shell__rail hero-shell__rail--vertical" />
         <div className="hero-shell__sweep hero-shell__sweep--vertical" />
         <div className="hero-shell__sweep hero-shell__sweep--horizontal" />
+        <div className="hero-shell__notch hero-shell__notch--top" />
+        <div className="hero-shell__notch hero-shell__notch--bottom" />
       </div>
 
-      <div className="mx-auto flex min-h-[clamp(42rem,78svh,52rem)] max-w-7xl items-center px-6 py-12 sm:px-8 sm:py-16 lg:px-10">
-        <div className="grid w-full gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(22rem,0.95fr)] xl:items-center">
+      <div className="hero-shell__inner mx-auto flex max-w-7xl items-center px-6 py-8 sm:px-8 sm:py-12 lg:px-10 xl:py-16">
+        <div className="hero-shell__layout grid w-full gap-7 lg:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(22rem,0.95fr)] xl:items-center">
           <div className="hero-copy">
             <p className="section-plate mb-8">01 // Overview</p>
 
@@ -112,7 +116,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          <PlayfulSignalVisual focusAreas={focusAreas} projects={projects} />
+          <div className="hero-shell__console-wrap">
+            <PlayfulSignalVisual focusAreas={focusAreas} projects={projects} />
+          </div>
         </div>
       </div>
     </section>

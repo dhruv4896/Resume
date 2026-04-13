@@ -4,7 +4,10 @@ const toneClasses = ["surface-tone--graphite", "surface-tone--bone"];
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="bg-[color:var(--section-soft)] py-20 sm:py-28">
+    <section
+      id="experience"
+      className="section-zone section-zone--experience bg-[color:var(--section-soft)] py-20 sm:py-28"
+    >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
         <div className="grid gap-8 xl:grid-cols-[minmax(0,15rem)_1fr]">
           <div className="xl:pt-6">

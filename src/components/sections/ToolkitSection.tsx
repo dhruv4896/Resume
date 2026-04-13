@@ -9,7 +9,10 @@ const toneClasses = [
 
 export function ToolkitSection() {
   return (
-    <section id="expertise" className="bg-[color:var(--page-bg)] py-20 sm:py-28">
+    <section
+      id="expertise"
+      className="section-zone section-zone--expertise bg-[color:var(--page-bg)] py-20 sm:py-28"
+    >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
         <div className="grid gap-8 xl:grid-cols-[minmax(0,15rem)_1fr]">
           <div className="xl:pt-6">

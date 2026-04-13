@@ -29,41 +29,43 @@ export function PlayfulSignalVisual({
         </div>
       </div>
 
-      <div className="signal-console__section">
-        <div className="module-header">
-          <span className="status-led" data-active />
-          <p className="module-header__label">Current Focus</p>
+      <div className="signal-console__body">
+        <div className="signal-console__section signal-console__section--focus">
+          <div className="module-header">
+            <span className="status-led" data-active />
+            <p className="module-header__label">Current Focus</p>
+          </div>
+
+          <ul className="console-focus-list">
+            {focusAreas.map((item, index) => (
+              <li key={item} className="console-focus-item">
+                <span className="console-focus-item__index mono-data">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="console-focus-item__label">{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <ul className="console-focus-list">
-          {focusAreas.map((item, index) => (
-            <li key={item} className="console-focus-item">
-              <span className="console-focus-item__index mono-data">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="console-focus-item__label">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="signal-console__section signal-console__section--metrics">
+          <div className="module-header">
+            <span className="status-led" data-active />
+            <p className="module-header__label">Measured Outcomes</p>
+          </div>
 
-      <div className="signal-console__section signal-console__section--metrics">
-        <div className="module-header">
-          <span className="status-led" data-active />
-          <p className="module-header__label">Measured Outcomes</p>
-        </div>
-
-        <div className="console-metric-list">
-          {projects.map((project, index) => (
-            <article
-              key={project.title}
-              className={`console-metric ${index === 0 ? "surface-tone--orange-soft" : "surface-tone--teal"}`}
-            >
-              <p className="console-metric__title">{project.title}</p>
-              <p className="console-metric__value mono-data">{project.metric}</p>
-              <p className="console-metric__label">{project.metricLabel}</p>
-            </article>
-          ))}
+          <div className="console-metric-list">
+            {projects.map((project, index) => (
+              <article
+                key={project.title}
+                className={`console-metric ${index === 0 ? "surface-tone--orange-soft" : "surface-tone--teal"}`}
+              >
+                <p className="console-metric__title">{project.title}</p>
+                <p className="console-metric__value mono-data">{project.metric}</p>
+                <p className="console-metric__label">{project.metricLabel}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </div>

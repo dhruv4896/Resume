@@ -2,7 +2,10 @@ import { projects } from "../../content/profile";
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="bg-[color:var(--section-soft)] py-20 sm:py-28">
+    <section
+      id="projects"
+      className="section-zone section-zone--projects bg-[color:var(--section-soft)] py-20 sm:py-28"
+    >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
         <div className="grid gap-8 xl:grid-cols-[minmax(0,15rem)_1fr]">
           <div className="xl:pt-6">

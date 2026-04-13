@@ -1,4 +1,7 @@
+import type { CSSProperties } from "react";
+
 import { useActiveSection } from "../app/useActiveSection";
+import { usePageScene } from "../app/usePageScene";
 import { SectionRail } from "../components/layout/SectionRail";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { EducationContactSection } from "../components/sections/EducationContactSection";
@@ -13,6 +16,7 @@ import { publicLinks } from "../content/site";
 
 export function HomePage() {
   const activeSection = useActiveSection();
+  const { scene, scrollProgress } = usePageScene(activeSection);
   const pageTickerItems = [
     ...experienceItems.map((item) => item.company),
     ...projects.map((project) => `${project.metric} ${project.metricLabel}`),
@@ -21,18 +25,34 @@ export function HomePage() {
     "NLP",
     "UAT",
   ];
+  const footerTickerItems = [...pageTickerItems].reverse();
+  const sceneStyle = {
+    "--page-scroll-progress": String(scrollProgress),
+  } as CSSProperties;
 
   return (
-    <div className="page-shell min-h-screen bg-[color:var(--page-bg)] text-[color:var(--text-primary)] transition-colors duration-300 motion-reduce:transition-none">
+    <div
+      className="page-shell min-h-screen bg-[color:var(--page-bg)] text-[color:var(--text-primary)] transition-colors duration-300 motion-reduce:transition-none"
+      data-scene={scene}
+      style={sceneStyle}
+    >
       <div className="page-shell__background" aria-hidden="true">
         <div className="page-shell__grid-layer page-shell__grid-layer--base technical-grid" />
         <div className="page-shell__grid-layer page-shell__grid-layer--drift technical-grid" />
+        <div className="page-shell__grid-layer page-shell__grid-layer--parallax technical-grid" />
+        <div className="page-shell__beam page-shell__beam--hero" />
+        <div className="page-shell__beam page-shell__beam--mid" />
+        <div className="page-shell__beam page-shell__beam--crescendo" />
+        <div className="page-shell__scan-band" />
         <div className="page-shell__rail-band page-shell__rail-band--top" />
         <div className="page-shell__rail-band page-shell__rail-band--mid" />
         <div className="page-shell__rail-band page-shell__rail-band--bottom" />
+        <div className="page-shell__rail-band page-shell__rail-band--far" />
+        <div className="page-shell__utility-field" />
         <div className="page-shell__pulse page-shell__pulse--orange" />
         <div className="page-shell__pulse page-shell__pulse--teal" />
         <div className="page-shell__pulse page-shell__pulse--yellow" />
+        <div className="page-shell__pulse page-shell__pulse--red" />
       </div>
 
       <a
@@ -56,6 +76,11 @@ export function HomePage() {
           </div>
         </div>
         <ProjectsSection />
+        <div className="border-y border-[color:var(--border-soft)] bg-[color:var(--section-strong)] py-3">
+          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
+            <UtilityTickerBand items={footerTickerItems} tone="mixed" />
+          </div>
+        </div>
         <EducationContactSection />
       </main>
 
